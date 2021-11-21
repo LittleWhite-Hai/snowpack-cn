@@ -1,0 +1,15 @@
+{
+  "name": "snowpack-www",
+  "private": true,
+  "version": "3.0.0",
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build",
+    "copy": "node scripts/copy.js"
+  },
+  "dependencies": {
+    "astro": "^0.19.4",
+    "date-fns": "^2.19.0",
+    "docsearch.js": "^2.6.3"
+  }
+}

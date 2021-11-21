@@ -1,0 +1,202 @@
+---
+import Button from '../components/Button.astro';
+import Menu from '../components/Menu.astro';
+import Hero from '../components/Hero.astro';
+import BaseHead from '../components/BaseHead.astro';
+import BaseLayout from '../components/BaseLayout.astro';
+
+let title = 'Snowpack';
+let description = 'Snowpack is a lightning-fast frontend build tool, designed for the modern web.';
+---
+
+<!doctype html>
+<html>
+<head>
+  <style lang="scss">
+    @use '../../public/styles/var' as *;
+
+    .layout {
+      display: grid;
+      grid-template-areas: "main";
+    
+      @media (min-width: $breakpoint-m) {
+        grid-template-areas: "nav main";
+        grid-template-columns: 16rem auto;
+      }
+
+      &-nav {
+        grid-area: nav;
+      }
+
+      &-main {
+        grid-area: main;
+      }
+    }
+
+    .top {
+      text-align: left;
+    }
+
+    .img-banner {
+      background: #f0db4f;
+      display: block;
+      text-align: center;
+
+      img {
+        max-width: min(32rem, 100%);
+      }
+    }
+
+    .bullets {
+      display: grid;
+      grid-row-gap: 1em;
+      grid-column-gap: 2em;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 2.5em 0 !important;
+      padding: 0.1em !important;
+      list-style: none;
+
+      .bullet-heading {
+        margin: 0 0 0.25em 0;
+        font-size: 1.25em;
+      }
+    }
+
+    .bullet {
+      padding: 0.25em;
+      border-radius: 4px;
+
+      h3 {
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: "✅";
+          font-size: 0.75em;
+          display: block;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    .buttons {
+      margin: 2em 4.2em 2em 0;
+      text-align: center;
+
+      > * {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+  </style>
+  <BaseHead title={title} description={description} permalink="TODO" />
+</head>
+
+<body>
+  <BaseLayout>
+    <Hero bar="{title}" />
+    <div foo="{title}" class="wrapper" style="margin: 0 auto">
+      <section class="layout pt6 pb6">
+        <aside id="nav-primary" class="layout-nav">
+          <Menu></Menu>
+        </aside>
+
+        <article class="layout-main">
+          <a class="img-banner" href="https://osawards.com/javascript/2020" target="_blank"
+            rel="noopener noreferrer">
+            <img src="/img/JSAwardWinner.png" alt="2020 JavaScript Open Source Award Winner banner" />
+          </a>
+
+          <div class="markdown-body feature-list">
+            <div class={'t' + 'o' + 'p'}>
+              <h2 id="what-is-snowpack%3F">Snowpack 是什么?</h2>
+              <p>
+                <strong>
+                Snowpack 是一个用在现代Web应用上的，快如闪电的前端构建工具。
+                </strong>
+                 在你的开发工作流程中，它可以替代更重、更复杂的打包工具，如 webpack或Parcel。
+                 Snowpack利用了JavaScript的本地模块系统(<a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">ESM</a>)以避免不必要的工作，无论你的项目膨胀地多大，它都能保持快速。
+ 
+              </p>
+              <p>
+                只要试过一次，就再也回不去了。
+              </p>
+            </div>
+
+            <ul class="bullets">
+              <li class="bullet">
+                <h3 class="bullet-heading">即刻开始</h3>
+                Snowpack的免打包web开发服务器可以在
+                <!-- Snowpack's unbundled web development server -->
+                <strong>
+                50毫秒内启动
+                <!-- starts up in 50ms or less -->
+                </strong>
+                ，并且在大型项目中保持快速。
+                <!-- and stays fast in large projects. -->
+              </li>
+              <li class="bullet">
+                <h3 class="bullet-heading">
+                一次打包，永久缓存
+                <!-- Build once, cache forever -->
+                </h3>
+                Snowpack 从不重复打包相同的文件。这项技术由浏览器自带的Javascript模块系统(ESM)所驱动。
+                <!-- Snowpack never builds the same file twice. Powered by
+                JavaScript’s native module system (ESM) in the browser. -->
+              </li>
+              <li class="bullet">
+                <h3 class="bullet-heading">
+                热更新。轻快刷新
+                <!-- HMR feat. Fast Refresh -->
+                </h3>
+                在React，Preact和Svelte场景下，凭借<a href="/concepts/hot-module-replacement">HMR + Fast Refresh</a>即可做到不刷新就可以立刻在浏览器中响应文件修改
+                <!-- No refresh required. See changes reflected instantly in the
+                browser with
+                <a href="/concepts/hot-module-replacement">HMR + Fast Refresh</a>
+                for React, Preact & Svelte. -->
+              </li>
+              <li class="bullet">
+                <h3 class="bullet-heading">
+                开箱即用
+                <!-- Out-of-the-box support -->
+                </h3>
+                Snowpack内置JSX, TypeScript, React, Preact, Css和<a href="/reference/supported-files">更多</a>模块.
+                <!-- Enjoy Snowpack's built-in support for JSX, TypeScript, React,
+                Preact, CSS Modules 
+                <a href="/reference/supported-files">and more.</a>-->
+              </li>
+              <li class="bullet">
+                <h3 class="bullet-heading">
+                生产环境下优化
+                <!-- Optimize for production -->
+                </h3>
+                对生产环境下的打包提供内置的优化和插件，以支持你最爱的打包工具。
+                <!-- Build for production with built-in optimizations and plugin
+                support for your favorite bundlers. -->
+              </li>
+              <li class="bullet">
+                <h3 class="bullet-heading">插件? 插件!</h3>
+                Babel? Sass? MDX? 查看所有的
+                <a href="/plugins">Snowpack 插件目录</a>
+                以连接你最爱的构建工具(或者<a href="/reference/plugins">自己造个轮子!</a>)
+                <!-- Babel? Sass? MDX? Browse the entire
+                <a href="/plugins">Snowpack Plugin Catalog</a>
+                to connect your favorite build tool (or
+                <a href="/reference/plugins">create your own!</a>) -->
+              </li>
+            </ul>
+
+            <div class="buttons">
+              <a href="/tutorials/quick-start"><Button style="primary">开始吧!</Button></a>
+              <a href="/concepts/how-snowpack-works"><Button>了解更多</Button></a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </BaseLayout>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

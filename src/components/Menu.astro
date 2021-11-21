@@ -1,0 +1,158 @@
+<style lang="scss">
+  @use '../../public/styles/var' as *;
+
+  .nav {
+    display: none;
+    position: fixed;
+    top: $nav-height;
+    left: 0;
+    width: 100%;
+    padding-top: $algolia-height;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    overflow-y: scroll;
+    background: $dark-blue;
+    transition: padding 0.2s ease-out, opacity 0.2s ease-in-out;
+    z-index: map-get($map: $layers, $key: 'nav');
+
+    @media (min-width: $breakpoint-m) {
+      display: block;
+      position: static;
+      padding-top: 0;
+      padding-right: 0;
+      padding-left: 0;
+      background: none;
+      overflow-y: auto;
+    }
+
+    :global(body.is-nav-open) & {
+      display: block;
+    }
+  }
+
+  .contents {
+    margin: 0;
+    // height: calc(100vh - #{$nav-height + $algolia-height});
+    padding: 2rem 0;
+    list-style: none;
+  }
+
+  .section {
+    + .section {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .header {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: rgba($white, 0.6);
+    font-weight: 600;
+    font-size: 15px;
+    font-family: $heading;
+    line-height: 1.2;
+
+    @media (min-width: $breakpoint-m) {
+      color: $dark-grey;
+    }
+  }
+
+  .items {
+    font-size:13px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .link,
+  .subnav a {
+    position: relative;
+    display: block;
+    color: $white;
+    text-decoration: none;
+    border: none;
+    transition: color 0.3s;
+
+    @media (min-width: $breakpoint-m) {
+      color: $grey;
+    }
+
+    &::before {
+      position: absolute;
+      top: -2px;
+      left: -19px;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 1;
+      opacity: 0;
+      transition: left 0.14s ease-out;
+      content: '▸';
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.active {
+      color: #0c8cec;
+      text-decoration: underline;
+
+      &::before {
+        left: -17px;
+        opacity: 1;
+      }
+    }
+  }
+</style>
+
+<nav class="nav">
+  <ol class="contents">
+    <li class="section">
+      <span class="header">概念</span>
+      <ol class="items">
+        <li><a class="link" href="/concepts/how-snowpack-works">Snowpack运行机制</a></li>
+        <li><a class="link" href="/concepts/dev-server">开发时服务</a></li>
+        <li><a class="link" href="/concepts/build-pipeline">打包流程</a></li>
+        <li><a class="link" href="/concepts/hot-module-replacement">模块热替换(HMR)</a></li>
+      </ol>
+    </li>
+
+    <li class="section">
+      <span class="header">开始</span>
+      <ol class="items">
+        <li><a class="link" href="/tutorials/quick-start">快速上手</a></li>
+        <li><a class="link" href="/tutorials/getting-started">正式使用</a></li>
+        <li><a class="link" href="/tutorials/react">React</a></li>
+        <li><a class="link" href="/tutorials/svelte">Svelte</a></li>
+        <li><a class="link" href="/tutorials/vue">Vue</a></li>
+      </ol>
+    </li>
+
+    <li class="section">
+      <a class="link" href="/guides"><span class="header">指引</span></a>
+    </li>
+
+    <li class="section">
+      <span class="header">引用</span>
+      <ol class="items">
+        <li><a class="link" href="/reference/configuration">snowpack.config.js</a></li>
+        <li><a class="link" href="/reference/cli-command-line-interface">命令行 API</a></li>
+        <li><a class="link" href="/reference/javascript-interface">JavaScript API</a></li>
+        <li><a class="link" href="/reference/plugins">插件 API</a></li>
+        <li><a class="link" href="/reference/environment-variables">环境变量</a></li>
+        <li><a class="link" href="/reference/hot-module-replacement">模块热替换 API</a></li>
+        <li><a class="link" href="/reference/supported-files">支持的文件类型</a></li>
+        <li><a class="link" href="/reference/common-error-details">常见错误</a></li>
+      </ol>
+    </li>
+
+    <li class="section">
+      <a class="link" href="/plugins"><span class="header">插件目录</span></a>
+    </li>
+
+    <li class="section">
+      <a class="link" href="/news"><span class="header">社区 & 新闻</span></a>
+    </li>
+  </ol>
+</nav>
