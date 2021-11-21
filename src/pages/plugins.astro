@@ -3,7 +3,7 @@ import PluginSearchPage from '../components/PluginSearchPage.jsx';
 import BaseHead from '../components/BaseHead.astro';
 import MainLayout from '../components/MainLayout.astro';
 
-let title = 'The Snowpack Plugin Catalog';
+let title = 'Snowpack 插件目录';
 let description = 'Snowpack plugins allow for configuration-minimal tooling integration.';
 ---
 
@@ -58,17 +58,16 @@ let description = 'Snowpack plugins allow for configuration-minimal tooling inte
     <h2 class="content-title">{ title }</h2>
 
     <h3 class="pluginPage-subheading">
-      Customize Snowpack with optimized build plugins.
+      用插件定制Snowpack
     </h3>
     <p class="pluginPage-intro">
-      To learn more about our plugin system, check out the
-      <a href="/reference/plugins">Plugin API.</a><br />Can't find what you need?
-      <a href="/reference/plugins">Creating your own plugin is easy!</a>
+    在<a href="/reference/plugins">Plugin API</a>中了解插件系统
+      <br />找不到你需要的插件？<a href="/reference/plugins">自己造轮子也很Easy！</a>
     </p>
 
     <div style="margin-top:4rem;"></div>
 
-    <PluginSearchPage:load />
+    <PluginSearchPage client:load />
   </MainLayout>
 </body>
 

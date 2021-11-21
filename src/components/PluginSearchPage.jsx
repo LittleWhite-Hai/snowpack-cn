@@ -1,5 +1,5 @@
-import {h, Fragment} from 'preact';
-import {useEffect, useState} from 'preact/hooks';
+import { h, Fragment } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
 import Styles from './PluginSearchPage.module.css';
 
 async function searchPlugins(val) {
@@ -12,7 +12,7 @@ async function searchPlugins(val) {
   return jsonres.results;
 }
 
-function Card({result}) {
+function Card({ result }) {
   const updatedAtFormatted = Intl.DateTimeFormat('en', {
     month: 'long',
     day: 'numeric',
@@ -81,15 +81,15 @@ function PluginSearchPageLive() {
           type="search"
           name="q"
           defaultValue={searchQuery}
-          placeholder="search Sass, sitemaps, image optimization..."
+          placeholder="搜索 Sass, sitemaps, image optimization..."
           class={Styles.Input}
         />
         <button type="submit" class={Styles.Submit}>
-          Search
+          搜索
         </button>
       </form>
       <div class={Styles.Count} id="total-result-count">
-        {!searchQuery && results && results.length > 50 && `${results.length}+ plugins available!`}
+        {!searchQuery && results && results.length > 50 && `${results.length}+ 插件可用！`}
       </div>
       <section id="search-results" class={Styles.Results}>
         {!results && (
