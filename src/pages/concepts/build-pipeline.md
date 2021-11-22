@@ -6,7 +6,7 @@ description: Snowpack Build creates a production-ready website with or without a
 
 ![build output example](/img/snowpack-build-example.png)
 
-`snowpack build`- 当你准备部署项目代码时，运行打包命令来构建生产环境下的网站静态代码。生成的静态代码结构忠于开发环境代码，这样你就能得到一个与开发过程代码的近乎一样的副本。
+`snowpack build`- 当你准备部署项目代码时，运行打包命令来构建生产环境下的网站静态代码。生成的静态代码结构忠于开发环境代码，这样你就能得到一个与开发环境代码的近乎一样的副本。
 
 ### 生产环境打包
 
