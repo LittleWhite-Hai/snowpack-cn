@@ -4,7 +4,7 @@ title: "开始Snowpack"
 description: This guide shows you how to set up Snowpack from scratch in a Node.js project. Along the way learn key concepts of Snowpack and unbundled development.
 ---
 
-欢迎来到 Snowpack！本指南会教你怎样在一个 Node.js 项目中从头开始配置 Snowpack。在此过程中，你将学习到 Snowpack 和免打包式开发的关键概念。
+欢迎来到 Snowpack！你会在这个学会怎样在 Node.js 项目中从头开始配置 Snowpack。在此过程中，你将了解到 Snowpack 和免打包式开发的关键概念。
 
 在本指南中，你将学习
 
@@ -23,14 +23,14 @@ description: This guide shows you how to set up Snowpack from scratch in a Node.
 
 ## 安装 Snowpack
 
-首先，为你的新 Snowpack 项目创建一个空目录。使用你喜欢的 GUI 或通过运行命令行来创建新目录，如图所示。
+首先，为 Snowpack 项目创建一个空目录。通过 GUI 或运行命令行来创建新目录，如图所示。
 
 ```bash
 mkdir my-first-snowpack
 cd my-first-snowpack
 ```
 
-Snowpack 是一个从 npm 安装的软件包。在你的项目目录下创建一个`package.json`文件来管理npm项目依赖。在项目中运行这个命令来创建一个空的`package.json`。
+Snowpack 是一个从 npm 安装的软件包。在你的项目目录下创建一个`package.json`文件来管理 npm 项目依赖。在项目中运行这个命令来创建一个空的`package.json`。
 
 ```bash
 npm init
@@ -83,11 +83,11 @@ npm init
 
 <div class="frame"><img src="/img/guides/getting-started/run-snowpack.jpg" alt="Side by side of the terminal showing the dev server output. The dev server output displays the localhost address the project is running on. In a browser window you can see the running project on localhost, which is 'Welcome to Snowpack' on a white background." class="screenshot"/></div>
 
-恭喜！你现在有一个正在运行中的Snowpack 项目了，试着在服务器运行时修改 index.html 并保存，网站应该会自动刷新并响应变化。
+恭喜！你现在有一个正在运行中的 Snowpack 项目了，试着在服务器运行时修改 index.html 并保存，网站应该会自动刷新并响应变化。
 
 ## 使用 JavaScript
 
-通过添加一个简单的 "hello world" 脚本，了解更多关于 Snowpack 对 JavaScript 的处理机制。JavaScript 的本地 ES 模块（ESM）语法是 Snowpack 免打包开发背后的魔力。你很可能已经很熟悉 ESM 了，只是你不知道它的存在！你用 ESM 定义了浏览器和构建工具可以理解并优化的 import 和 export 。如果你熟悉 JavaScript 中的`import`和`export`关键字，你就已经知道 ESM 了
+通过添加一个简单的 "hello world" 脚本，了解更多关于 Snowpack 对 JavaScript 的处理机制。JavaScript 的本地 ES 模块（ESM）语法是 Snowpack 免打包开发背后的魔力。你很可能已经很熟悉 ESM 了，只是你不知道它的存在！你一定用 ESM 实现过浏览器和构建工具可以理解并优化的 import 和 export 功能 。如果你熟悉 JavaScript 中的`import`和`export`关键字，你就已经知道 ESM 了。
 
 创建一个名为`hello-world.js`的新 JavaScript 文件，导出一个`helloWorld`函数。
 
@@ -116,7 +116,7 @@ Snowpack 只扫描`index.html`中导入的文件，所以你要把`index.js`添�
   </body>
 ```
 
-在你的 Snowpack 网站上查看控制台。你应该看到 "Hello World！"。修改一个模块试试，Snowpack 会重建该模块而不重建其他代码。Snowpack**单独构建每个文件，并无限期地缓存它们**。你的开发环境不会对一个文件进行多次构建，在文件改变之前，浏览器也不会下载文件两次。这就是免打包式开发的真正力量，也是 Snowpack 如此快速的秘密所在。
+在 Snowpack 网站上查看控制台，你能看到 "Hello World！"。修改一个模块试试，Snowpack 会重建该模块而不重建其他代码。Snowpack**单独构建每个文件，并无限期地缓存它们**。你的开发环境不会对一个文件进行多次构建，在文件改变之前，浏览器也不会下载文件两次。这就是免打包式开发的真正力量，也是 Snowpack 如此快速的秘密所在。
 
 <div class="frame"><img src="/img/guides/getting-started/hello-world.gif" alt="Gif showing the code next to the project running in the browser. On save the console shows 'Hello World!'. On edit and save of the `hello-world.js` file to be 'Hello everyone!' instead, that instantly shows in the browser console." class="screenshot"/></div>
 
@@ -124,20 +124,20 @@ Snowpack 只扫描`index.html`中导入的文件，所以你要把`index.js`添�
 
 Snowpack 将任何 npm 包构建成 ESM 模块。npm 包主要是使用模块语法（Common.js，或 CJS）发布的，不经过一些打包处理就不能在浏览器上运行。虽然用浏览器原生的 ESM`import`和`export`语句编写的代码会直接在浏览器中运行，但在导入 npm 包后你都会退回到打包式开发时代
 
-**Snowpack 采取了一种不同的方法：**Snowpack 不为这一个要求捆绑你的整个应用程序，而是单独处理你的依赖关系。以下是它的工作原理。
+**Snowpack 采取了一种不同的方法**： Snowpack 没有因为这个打包整个应用程序，而是单独处理 npm 依赖。以下是它的工作原理。
 
     node_modules/react/**/*     -> http://localhost:3000/web_modules/react.js
     node_modules/react-dom/**/* -> http://localhost:3000/web_modules/react-dom.js
 
-1. Snowpack 扫描你的网站/应用程序的所有使用的 npm 包。
-2. Snowpack 从`node_modules`目录中读取这些已安装的依赖项。
-3. Snowpack 将所有依赖性分别打包到单个 JavaScript 文件中。例如：`react`和`react-dom`分别转换为`react.js`和`react-dom.js`。
-4. 每个转换来的文件在 ESM 的`import`语句导入后，可以直接在浏览器中运行。
+1. Snowpack 扫描网站/应用程序引入的所有 npm 包。
+2. Snowpack 从`node_modules`目录中读取这些已安装的依赖包。
+3. Snowpack 将所有 npm 依赖分别打包到单个 JavaScript 文件中。例如：`react`和`react-dom`分别转换为`react.js`和`react-dom.js`。
+4. 每个转换来的文件在经过 ESM 的`import`语句导入后，都可以直接在浏览器中运行。
 5. 因为 npm 依赖很少改变，Snowpack 很少需要重建它们。
 
 在 Snowpack 执行完对 npm 依赖的处理后，任何包都可以被导入并直接在浏览器中运行，不需要额外的打包或工具。这种在浏览器中原生导入 npm 包的能力（无需打包器）是所有免打包式开发工具和 Snowpack 建立的基础。
 
-Snowpack 让你在浏览器中直接导入 npm 包。即使软件包采用的是CommonJS，Snowpack 也会在将其传给浏览器之前将其向上转换为 ESM。
+Snowpack 让你在浏览器中直接导入 npm 包。即使软件包采用的是 CommonJS，Snowpack 也会在将其传给浏览器之前将其向上转换为 ESM。
 
 > 💡 提示：当你启动开发服务器或构建项目时，你可能会看到 Snowpack 正在 "安装依赖" 的信息。这意味着 Snowpack 正在转换你的依赖，以在浏览器中运行。
 
@@ -161,15 +161,15 @@ helloWorld();
 
 > 💡 提示：你知道吗，在 Snowpack 中，如果你愿意，你也可以直接将这段代码添加到你的 HTML 中
 
-现在你应该在你的网站上看到一个漂亮的纸屑效果。
+现在你应该可以看到一个漂亮的纸屑效果。
 
 <div class="frame"><img src="/img/guides/getting-started/npm-snowpack-confetti.gif" alt="Gif showing the code next to the project running in the browser. When the code snippet is added and saved, a confetti effect shows in the browser" class="screenshot"/></div>
 
-> 💡 提示：不是所有的 npm 模块都能在浏览器中良好运行。依赖于 Node.js 内置模块的模块需要一次polyfill。你可以通过将 Snowpack 的[`packageOptions.polyfillNode`](/reference/configuration#packageoptions.polyfillnode) 配置选项设置为`true`来启用 polyfill。
+> 💡 提示：不是所有的 npm 模块都能在浏览器中良好运行。依赖于 Node.js 内置模块的模块需要一次 polyfill。你可以通过将 Snowpack 的[`packageOptions.polyfillNode`](/reference/configuration#packageoptions.polyfillnode) 配置选项设置为`true`来启用 polyfill。
 
 ## 添加 CSS
 
-Snowpack 原生支持许多文件类型，比如CSS 和 CSS 模块。添加一个简单的 CSS 文件来看看它是如何运行的。
+Snowpack 原生支持许多文件类型，比如 CSS 和 CSS 模块。添加一个简单的 CSS 文件来看看它是如何运行的。
 
 添加以下 css 作为一个新的`index.css`文件。
 
@@ -179,7 +179,7 @@ body {
 }
 ```
 
-通过在index.html 的 `<head />` 中添加它来把它引入你的项目中。
+通过在 index.html 的 `<head />` 中添加它来把它引入你的项目中。
 
 ```diff
     <meta name="description" content="Starter Snowpack App" />
@@ -222,9 +222,9 @@ npm run build
 
 下一步是什么？我们的文档网站有几个很好的资源
 
-- [生产打包指南](/guides/optimize-and-bundle)：如何接入像 Webpack 这样的打包器来优化生产环境的代码部署
-- [插件](/plugins)：让你可以将你喜欢的工具与 Snowpack 结合的插件列表。
+- [生产打包指南](/guides/optimize-and-bundle)：如何接入像 Webpack 这样的打包器来优化生产环境的代码部署。
+- [插件](/plugins)：让你能将你喜欢的工具接入 Snowpack 的插件列表。
 - [模板/示例](https://github.com/snowpackjs/snowpack/tree/main/create-snowpack-app/cli)：预先建立的项目，你可以使用许多流行的框架和工具来建立或探索。
 - [指南](/guides)：一步一步深入研究如何使用和建设 Snowpack，包括 React 和 Svelte 等框架。
 
-如果你有任何问题、评论或更正，我们希望在[Snowpack论坛](https://github.com/snowpackjs/snowpack/discussions)或[Snowpack Discord 社区](https://discord.gg/rS8SnRk)听到你的意见。
+如果你有任何问题、评论或更正，我们希望在[Snowpack 论坛](https://github.com/snowpackjs/snowpack/discussions)或[Snowpack Discord 社区](https://discord.gg/rS8SnRk)听到你的意见。

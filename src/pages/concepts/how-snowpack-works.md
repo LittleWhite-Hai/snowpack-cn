@@ -36,15 +36,15 @@ Snowpack 的**免打包式**工具仍支持你在生产中所习惯的**打包�
 
 NPM 包主要是使用模块语法（Common.js，或 CJS）发布的，如果没有一些构建处理，就不能在浏览器上运行。虽然用浏览器原生的 ESM`import`和`export`语句编写的代码会直接在浏览器中运行，但在导入 npm 包后你都会退回到打包式开发时代。
 
-**Snowpack 采取了一种不同的方法**。Snowpack 没有为这一个需求打包你的整个应用程序，而是单独处理 npm 依赖。以下是它的工作原理。
+**Snowpack 采取了一种不同的方法**： Snowpack 没有因为这个打包整个应用程序，而是单独处理 npm 依赖。以下是它的工作原理。
 
     node_modules/react/**/*     -> http://localhost:3000/web_modules/react.js
     node_modules/react-dom/**/* -> http://localhost:3000/web_modules/react-dom.js
 
-1. Snowpack 扫描你的网站/应用程序的所有使用的 npm 包。
-2. Snowpack 从`node_modules`目录中读取这些已安装的依赖项。
-3. Snowpack 将所有依赖项分别打包到单个 JavaScript 文件中。例如：`react`和`react-dom`分别被转换为`react.js`和`react-dom.js`。
-4. 每个转换来的文件在 ESM 的`import`语句导入后，可以直接在浏览器中运行。
+1. Snowpack 扫描网站/应用程序引入的所有 npm 包。
+2. Snowpack 从`node_modules`目录中读取这些已安装的依赖包。
+3. Snowpack 将所有 npm 依赖分别打包到单个 JavaScript 文件中。例如：`react`和`react-dom`分别转换为`react.js`和`react-dom.js`
+4. 每个转换来的文件在经过 ESM 的`import`语句导入后，都可以直接在浏览器中运行。
 5. 因为 npm 依赖很少改变，Snowpack 很少需要重建它们。
 
 在 Snowpack 执行完对 npm 依赖的处理后，任何包都可以被导入并直接在浏览器中运行，不需要额外的打包或工具。这种在浏览器中原生导入 npm 包的能力（无需打包器）是所有免打包式开发工具和 Snowpack 建立的基础。
