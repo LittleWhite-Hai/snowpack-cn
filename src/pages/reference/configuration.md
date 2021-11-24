@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/content.astro
 title: snowpack.config.js
-description: The Snowpack configuration API reference.
+description: Snowpack configuration API 配置目录.
 ---
 
 ```js
@@ -38,13 +38,13 @@ export default {
 
 **string：**`string`
 
-指定工作区或 monorepo 的根目录。当配置好后，Snowpack 将把工作区中的任何同级包当作源文件，并在开发过程中通过你的免打包式的 Snowpack 构建流程来传递它们，包括支持快速刷新， HMR，文件变化监听，以及在 monorepos 开发时的其他功能。
+指定工作区或 monorepo 的根目录。在配置好后，Snowpack 会把工作区中的任何同级包当作源文件，并在开发过程中通过免打包式的 Snowpack 构建流程来处理它们，流程包括支持快速刷新， HMR，文件变化监听，以及在 monorepos 下开发时的其他功能。
 
-当你为生产构建网站时，路径下的包将像其他包一样被处理，通过打包和 tree-shaken 形成单个文件以加快加载速度。
+为生产环境构建网站时，路径下的包将像其他包一样，通过打包和 tree-shaken 形成单个文件以加快加载速度。
 
 ## install
 
-过时的配置!它现在被移动到`packageOptions.knownEntrypoints`
+这是过时的配置，现在被移动到`packageOptions.knownEntrypoints`了。
 
 ## extends
 
@@ -52,7 +52,7 @@ export default {
 
 继承自一个单独的 "base "配置。
 
-可以是一个相对的文件路径，一个 npm 包，或者一个 npm 包中的文件。你的配置将被合并在扩展的基本配置之上。
+可以是一个相对的文件路径，一个 npm 包，或者一个 npm 包中的文件。你的配置将被合并，放在 base 配置上面。
 
 ## exclude
 
@@ -60,7 +60,7 @@ export default {
 
 **默认值**：`['**/node_modules/**/*']`
 
-在 Snowpack 流程中忽略的文件。
+不需要 Snowpack 处理的文件。
 
 支持 glob 模式匹配。
 
@@ -72,10 +72,10 @@ export default {
 
 将本地目录映射到构建的项目中的自定义 URL。
 
-- `mount.url`|`string`|_required_: 要挂载到的 URL，与上面的简单表格中的字符串相匹配。
-- `mount.static`|`boolean`|_optional_|**默认值**：`false`: 如果为 true，则不在此目录中构建文件。直接从磁盘复制并提供给浏览器。
-- `mount.resolve`|`boolean`|_optional_|**默认值**：`true`：如果是 false，就不会在 JS、CSS 和 HTML 文件中解析 JS 和 CSS 导入，而将代码中的 import 操作直接传给浏览器。
-- `mount.dot`|`boolean`|_optional_|**默认值**:`false`：如果为 true，在最终构建时包含其它类型文件（例如：`.htaccess`）。
+- `mount.url`|`string`|_required_: 要挂载到的 URL。
+- `mount.static`|`boolean`|_optional_| **默认值**：`false`: 如果为 true，则不在此目录中构建文件。直接从磁盘复制并提供给浏览器。
+- `mount.resolve`|`boolean`|_optional_| **默认值**：`true`：如果是 false，就不会在 JS、CSS 和 HTML 文件中解析 JS 和 CSS 导入，而将代码中的 import 操作直接传给浏览器。
+- `mount.dot`|`boolean`|_optional_| **默认值**:`false`：如果为 true，在最终构建时包含其它类型文件（例如：`.htaccess`）。
 
 例子。
 
