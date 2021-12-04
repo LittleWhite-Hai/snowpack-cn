@@ -107,7 +107,7 @@ export default {
 
 ## env
 
-**类型**。`记录。`
+**类型**:`Record<string, string|boolean|undefined>`
 
 声明任何应该在运行时暴露在`import.meta.en`上的环境变量。更多信息请参见[环境变量](/reference/environment-variables)。
 
@@ -120,9 +120,9 @@ export default {
 };
 ```
 
-## 别名
+## alias
 
-**类型**:`对象`(package: 包或路径)
+**类型**:`object`(package: 包或路径)
 
 配置目录和包的导入别名。
 
@@ -143,13 +143,12 @@ export default {
 };
 ```
 
-## 插件
+## plugins
 
-**类型**：包含 pluginName`string`的`数组`或数组`[pluginName`, {`pluginOptions`}。
+**类型**：包含 pluginName 的`数组`或数组[`pluginName`, {`pluginOptions`}]
 
-启用 Snowpack 插件和它们的选项。
 
-也请看我们的[插件指南](/guides/plugins)
+也可以看[插件指南](/guides/plugins)
 
 ```js
 // snowpack.config.mjs
@@ -166,17 +165,17 @@ export default {
 
 ## devOptions
 
-**类型**:`对象`(选项名称: 值)
+**类型**:`object`(option名称: value)
 
 配置 Snowpack 开发服务器。
 
 ### devOptions.secure
 
-**类型**:`布尔值`或`对象`**默认**:`false`
+**类型**:`boolean`或`object` **默认**:`false`
 
 切换 Snowpack 开发服务器是否应该在启用 HTTP2 时使用 HTTPS。更多信息请参见《[SSL 证书](/guides/https-ssl-certificates)指南》。
 
-如果该值为`true`，Snowpack 将在你的`根目录`中寻找`snowpack.crt`和`snowpack.key`文件。如果该值是一个`对象`，你可以直接传递你的自定义`证书`和`密钥`文件。
+如果该值为`true`，Snowpack 将在`根目录`中寻找`snowpack.crt`和`snowpack.key`文件。如果该值是一个`object`，你可以直接传如自定义的`cert`和`key`文件。
 
 ```js
 // snowpack.config.mjs
@@ -196,7 +195,7 @@ export default {
 
 **类型**：`string`**默认**：`localhost`
 
-开发服务器所运行的主机名。Snowpack 使用这个信息来配置 HMR websocket，并在启动时正确打开你的浏览器（见：[`devOptions.open`](#devoptions.open)）。
+开发服务器所运行的主机名。Snowpack 使用这个信息来配置 HMR websocket，并在启动时正确打开浏览器（见：[`devOptions.open`](#devoptions.open)）。
 
 ### devOptions.port
 
@@ -220,34 +219,34 @@ export default {
 
 ### devOptions.output
 
-**类型**。`"stream" | "dashboard"`**默认**：`"dashboard"`
+**类型**:`"stream" | "dashboard"`**默认**：`"dashboard"`
 
-设置`开发`控制台的输出模式。
+设置`dev`控制台的输出模式。
 
-- `"dashboard "`提供一个有组织的控制台输出和任何连接的工具的日志布局。这对大多数用户来说是值得推荐的，并能带来最好的日志体验。
+- `"dashboard "`提供一个组织过的控制台输出和任何连接的工具的日志布局。这对大多数用户来说是推荐的，它能带来最好的日志体验。
 - `"stream "`在 Snowpack 与其他命令并行运行时很有用，因为清除 shell 会清除在同一 shell 中运行的其他命令的重要输出。
 
 ### devOptions.hmr
 
-**类型**：`布尔型`**默认**：`true`
+**类型**：`boolean`**默认**：`true`
 
 在 Snowpack 开发服务器上切换 HMR。
 
 ### devOptions.hmrDelay
 
-**类型**：`数字`（毫秒）**默认**：`0`
+**类型**：`number`（毫秒）**默认**：`0`
 
 延迟 HMR 触发的浏览器更新的毫秒。
 
 ### devOptions.hmrPort
 
-**类型**：`数字`**默认**：[`devOptions.port`](#devoptions.port)
+**类型**：`number`**默认**：[`devOptions.port`](#devoptions.port)
 
 Snowpack 的 HMR Websocket 运行的端口。
 
 ### devOptions.hmrErrorOverlay
 
-**类型**: 布尔`型`**默认**:`true`
+**类型**: `boolean` **默认**:`true`
 
 在运行 HMR 时切换显示 JavaScript 运行时错误的浏览器叠加。
 
@@ -265,13 +264,13 @@ Snowpack 的 HMR Websocket 运行的端口。
 
 ## installOptions
 
-**类型**：`对象`
+**类型**：`object`
 
 *注意：*已被废弃，见`packageOptions`。
 
 ## packageOptions
 
-**类型**:`对象`
+**类型**:`object`
 
 配置 npm 包如何被安装和使用。
 
@@ -285,9 +284,9 @@ Snowpack 的 HMR Websocket 运行的端口。
 
 ### packageOptions.source
 
-**类型**。`"本地" | "远程"`**默认**：`"本地"`**例子**。`"源"。"本地"`
+**类型**:`"local" | "remote"`**默认**：`"local"`**例子**。`"source":"local"`
 
-你的 JavaScript npm 包可以以两种不同的方式被消费：**本地**和**远程**。每种模式都支持一组不同的包选项。你可以通过设置`packageOptions.source`属性在这两种不同的模式之间进行选择。
+你的 JavaScript npm 包可以以两种不同的方式被消费：**local**和**remote**。每种模式都支持一组不同的包选项。你可以通过设置`packageOptions.source`属性在这两种不同的模式之间进行选择。
 
 ### packageOptions.source=local
 
@@ -303,7 +302,7 @@ Snowpack 的 HMR Websocket 运行的端口。
 
 #### packageOptions.polyfillNode
 
-**类型**:`布尔型`**默认**:`false`
+**类型**:`boolean`**默认**:`false`
 
 这将自动为浏览器尽可能多地填充任何 Node.js 的依赖项
 
@@ -330,7 +329,7 @@ export default {
 
 #### packageOptions.env
 
-**类型**。`{[ENV_NAME: string]:(string true)}`
+**类型**:`{[ENV_NAME: string]:(string true)}`
 
 在已安装的依赖项中设置一个`process.env`.环境变量。
 
@@ -356,7 +355,7 @@ export default {
 
 #### packageOptions.rollup
 
-**类型**。`对象`
+**类型**: `Object`
 
 允许自定义 Snowpack 的内部 Rollup 配置。
 
@@ -390,13 +389,13 @@ Snowpack 内部使用 Rollup 来安装你的软件包。这个`rollup`配置选�
 
 #### packageOptions.types
 
-**类型**:`布尔值`**默认**:`false`
+**类型**:`boolean`**默认**:`false`
 
 如果为 true，Snowpack 将为每个包下载 TypeScript 类型。
 
 ## buildOptions
 
-**类型**:`对象`(选项名称: 值)
+**类型**:`Object`(选项名称: 值)
 
 配置你的最终构建。
 
@@ -416,7 +415,7 @@ Snowpack 内部使用 Rollup 来安装你的软件包。这个`rollup`配置选�
 
 ### buildOptions.clean
 
-**类型**:`布尔值`**默认**:`true`
+**类型**:`boolean`**默认**:`true`
 
 设置为`false`，以防止 Snowpack 在两次构建之间删除构建输出文件夹`（buildOptions.out`）。
 
@@ -445,7 +444,7 @@ Snowpack 内部使用 Rollup 来安装你的软件包。这个`rollup`配置选�
 
 ### buildOptions.sourcemap
 
-**类型**：`布尔值`**默认**：`false`
+**类型**：`boolean`**默认**：`false`
 
 生成源码图。
 
@@ -453,13 +452,13 @@ Snowpack 内部使用 Rollup 来安装你的软件包。这个`rollup`配置选�
 
 ### buildOptions.watch
 
-**类型**：`布尔值`**默认**：`false`
+**类型**：`boolean`**默认**：`false`
 
 通过一个文件观察器运行 Snowpack 的构建管道。当你有一个自定义的前端服务器（例如：Rails、PHP 等）而不能使用 Snowpack 开发服务器时，这个选项对本地开发最有效。
 
 ### buildOptions.htmlFragments
 
-**类型**：`布尔型`**默认**：`假`
+**类型**：`boolean`**默认**：`假`
 
 切换 HTML 片段是否像完整的 HTML 页面一样被转化。
 
@@ -493,8 +492,8 @@ HTML 片段是指不以`<！doctype html>`开头的 HTML 文件。
 
 指定你的测试文件。如果`NODE_ENV`被设置为 "test"，Snowpack 就会在你的网站构建中包括这些文件，并扫描它们的可安装依赖性。否则，Snowpack 排除这些文件。
 
-## 实验
+## experiments
 
-**类型**:`对象`(选项名称: 值)
+**类型**:`object`(选项名称: 值)
 
 这一部分目前是空的!在未来，这部分可能会被用于实验性的和尚未最终确定的。
