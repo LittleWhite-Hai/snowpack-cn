@@ -6,7 +6,7 @@ description: The Snowpack Plugin API and how to use it.
 
 想开始编写你自己的插件吗？请看我们的[插件指南](/guides/plugins)，它概述了插件的工作原理，并提供了帮助你创建自己的插件的方法。
 
-想找一个好的总结吗？请看我们的["SnowpackPlugin" TypeScript定义](https://github.com/snowpackjs/snowpack/blob/main/snowpack/src/types.ts#L130)，它是对插件API和所有支持选项的完整记录和最新概述。
+想找一个好总结吗？请看我们的["SnowpackPlugin" TypeScript定义](https://github.com/snowpackjs/snowpack/blob/main/snowpack/src/types.ts#L130)，它是对插件API和所有支持选项的完整记录和最新概述。
 
 ### 概述
 
@@ -30,9 +30,9 @@ module.exports = function (snowpackConfig, pluginOptions) {
 // };
 ```
 
-一个**Snowpack Plugin**是一个对象接口，可以让你定制Snowpack的行为。Snowpack为你的插件提供了不同的钩子来连接。例如，你可以添加一个插件来处理Svelte文件，优化CSS，将SVG转换成React组件，在开发过程中运行TypeScript，等等。
+一个**Snowpack Plugin**是一个对象接口，可以让你定制Snowpack的行为。Snowpack为你的插件提供了不同的hooks来连接。例如，你可以添加一个插件来处理Svelte文件，优化CSS，将SVG转换成React组件，在开发过程中运行TypeScript，等等。
 
-Snowpack的插件界面受到[Rollup](https://rollupjs.org/)的启发。如果你以前写过一个Rollup插件，那么希望这些概念和术语感觉很熟悉。
+Snowpack的插件界面受到[Rollup](https://rollupjs.org/)的启发。如果你以前写过一个Rollup插件，那么对这些概念和术语会很熟悉。
 
 ### 生命周期钩子
 
@@ -60,7 +60,7 @@ config(snowpackConfig) {
 
 #### optimize()
 
-Snowpack的捆绑器插件API仍然是实验性的，在未来的版本中可能会有变化。请参阅我们的官方捆绑器插件，了解使用当前接口的例子。
+Snowpack的打包器插件API仍然是实验性的，在未来的版本中可能会有变化。请参阅我们的官方打包器插件，了解使用当前接口的例子。
 
 - 例子: [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack)
 - 例子: [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle)
@@ -73,14 +73,14 @@ Snowpack的捆绑器插件API仍然是实验性的，在未来的版本中可能
 
 ### 插件属性
 
-#### 已知Entrypoints
+#### knownEntrypoints
 
     // Example: Svelte plugin needs to make sure this dependency can be loaded.
     knownEntrypoints: ["svelte/internal"]
 
 Snowpack需要了解的作为`load()`或`transform(`)的一部分而添加的任何npm依赖项的列表。Snowpack在扫描一个项目的源代码时，会自动分析大多数依赖关系的导入，但有些导入是作为`load()`或`transform(`)步骤的一部分添加的，这意味着Snowpack不会看到它们。如果你的插件是这样做的，请在这里添加它们。
 
-#### 解决
+#### resolve
 
     // Example: Sass plugin compiles Sass files to CSS.
     resolve: {input: [".sass"], output: [".css"]}
@@ -88,7 +88,7 @@ Snowpack需要了解的作为`load()`或`transform(`)的一部分而添加的任
     // Example: Svelte plugin compiles Svelte files to JS & CSS.
     resolve: {input: [".svelte"], output: [".js", ".css"]}
 
-如果你的插件定义了一个`load()`方法，Snowpack将需要知道你的插件负责加载哪些文件，以及它的输出会是什么样子**。只有当你也定义了一个`load()`方法时才需要`resolve`**。
+如果你的插件定义了一个`load()`方法，Snowpack将需要知道你的插件负责加载哪些文件，以及它的输出会是什么样子。**只有当你也定义了一个`load()`方法时才需要`resolve`**。
 
 - `input`: 这个插件要加载的文件扩展名的数组。
 - `output`: 这个插件的`load()`方法将输出的所有文件扩展名的集合。

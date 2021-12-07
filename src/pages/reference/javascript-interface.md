@@ -6,7 +6,7 @@ description: Snowpack's JavaScript API is for anyone who wants to integrate with
 
 大多数用户将通过[命令行](/reference/cli-command-line-interface)界面（CLI）与Snowpack互动。然而，Snowpack也提供了一个JavaScript API，供任何人在此基础上构建。
 
-本页包含了关于Snowpack的公共API和所有相关数据类型的参考信息。在项目中定义的所有数据类型（公共和私有）的完整集合可以在[包的`types.d.ts`](https://unpkg.com/browse/snowpack@3.0.10/lib/types.d.ts) 文件中找到。
+本页包含了关于Snowpack的公共API和所有相关数据类型的参考信息。在项目中定义的所有数据类型（公共和私有）的完整集合可以在包的[`types.d.ts`](https://unpkg.com/browse/snowpack@3.0.10/lib/types.d.ts) 文件中找到。
 
 ### createConfiguration()
 
@@ -17,7 +17,7 @@ import {createConfiguration} from 'snowpack';
 const config = createConfiguration({...});
 ```
 
-几乎所有你用Snowpack做的事情都需要一个配置对象。Snowpack被设计成可以在零配置的情况下工作，这个函数接受的`配置`参数可以是完整的、空的，或者只包含几个属性。配置对象的其余部分将被填入Snowpack通常的一组默认值，在我们的[snowpack.config.mjs文档](/reference/configuration)中概述。
+几乎所有你用Snowpack做的事情都需要一个配置对象。Snowpack被设计成可以在零配置的情况下运行，这个函数接受的`config`参数可以是完整的、空的，或者只包含几个属性。配置对象的其余部分将被填入Snowpack通常的一组默认值，在我们的[snowpack.config.mjs文档](/reference/configuration)中有介绍。
 
 最简单的方法是，`SnowpackUserConfig`是外部记录的配置格式，而`SnowpackConfig`是我们的内部表示，所有可选/未定义的值都是用实际的默认值填充的。
 
@@ -46,13 +46,13 @@ const server = await startServer({config}); // returns: SnowpackDevServer
 
 启动一个新的Snowpack开发服务器实例。这相当于在命令行上运行`snowpack dev`。
 
-一旦启动，你可以从你的开发服务器上加载文件，Snowpack将按照要求构建它们。这是一个需要理解的重要功能。Snowpack的开发服务器在启动时不做任何文件构建，而是在通过服务器的`loadUrl`方法请求时才构建文件。
+一旦启动，你可以从开发服务器上加载文件，Snowpack将按照要求构建它们。这是一个需要理解的重要功能。Snowpack的开发服务器在启动时不做任何文件构建，而是在通过服务器的`loadUrl`方法请求时才构建文件。
 
 ### Snowpack开发服务器(SnowpackDevServer)
 
 #### SnowpackDevServer.port
 
-服务器正在监听的端口。
+服务器监听的端口。
 
 #### SnowpackDevServer.loadUrl()
 
@@ -65,7 +65,7 @@ const {contents} = server.loadUrl('/dist/index.js', {...});
 
 加载一个文件并返回结果。在第一次请求一个URL的时候，这将启动一个构建，然后在服务器的生命周期内为所有未来的请求进行缓存。
 
-你可以通过`allowStale: true`来启用Snowpack的冷缓存，以获得过去会话的缓存结果。然而，Snowpack对冷缓存数据的新鲜度不提供任何保证。
+你可以通过`allowStale: true`来启用Snowpack的冷缓存，以获得过去会话的缓存结果。然而，Snowpack对冷缓存数据是否是最新的不提供任何保证。
 
 #### SnowpackDevServer.getUrlForFile()
 
@@ -100,7 +100,7 @@ const pkgUrl = await server.getUrlForPackage('preact');
 
 `onFileChange({filePath: string}) => void;`
 
-听取被监视的文件变化事件。在你可能想自己观察文件系统变化的情况下很有用，并且可以通过挂钩我们已经运行的观察器来节省开销/性能。
+监听文件的变化事件。在你可能想自己观察文件系统变化的情况下很有用，并且可以通过挂载我们已经运行的观察器来节省开销/性能。
 
 #### SnowpackDevServer.shutdown()
 
@@ -128,7 +128,7 @@ helloWorld();
 
 欲了解更多信息，请查看我们关于使用`getServerRuntime()`API的[服务器端渲染](/guides/server-side-render)的指南。
 
-#### 服务器运行时间（ServerRuntime
+#### 服务器运行时间（ServerRuntime）
 
 ```ts
 interface ServerRuntime {
@@ -139,7 +139,7 @@ interface ServerRuntime {
 }
 ```
 
-#### 服务器运行时模块（ServerRuntimeModule
+#### 服务器运行时模块（ServerRuntimeModule）
 
 ```ts
 interface ServerRuntimeModule {
@@ -166,13 +166,13 @@ const {result} = await build({config}); // returns: SnowpackBuildResult
 
 #### SnowpackBuildResult.shutdown
 
-在`-观察`模式下，`build()`函数将被解决，但构建本身将继续。使用此函数来关闭构建观察器。
+在`-watch`模式下，`build()`函数将被解析，但构建本身将继续。使用此函数来关闭构建观察器。
 
 在正常的构建模式下（非观察模式），该函数将抛出一个警告。
 
 #### SnowpackBuildResult.onFileChange
 
-在`-观察`模式下，`build()`函数将解决，但构建本身将继续。使用这个函数来响应文件变化事件，而不需要启动你自己的文件观察程序。
+在`-watch`模式下，`build()`函数将被解析，但构建本身将继续。使用这个函数来响应文件变化事件，而不需要启动你自己的文件观察程序。
 
 在正常的构建模式下（非监视模式），该函数将抛出一个警告。
 
@@ -187,7 +187,7 @@ const fileUrl = getUrlForFile('/path/to/file.js', config);
 
 一个辅助函数，用于查找任何源文件的最终托管URL。与`loadUrl`结合使用时非常有用，因为你可能只知道一个文件在磁盘上的位置而不知道它的最终托管URL。
 
-类似于`SnowpackDevServer.getUrlForFile()`，但需要第二个`配置`参数来告知结果。
+类似于`SnowpackDevServer.getUrlForFile()`，但需要第二个`config`参数来告知结果。
 
 ### clearCache()
 
