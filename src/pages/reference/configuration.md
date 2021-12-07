@@ -124,7 +124,7 @@ export default {
 
 **类型**:`object`(package: 包或路径)
 
-配置目录和包的import别名。
+配置目录和包的 import 别名。
 
 注意：在 Snowpack 的旧版本中，所有挂载的目录在默认情况下也可以作为别名。从 Snowpack 2.7 开始，这种情况不再存在。
 
@@ -147,7 +147,6 @@ export default {
 
 **类型**：包含 pluginName 的`数组`或数组[`pluginName`, {`pluginOptions`}]
 
-
 参见[插件指南](/guides/plugins)
 
 ```js
@@ -165,7 +164,7 @@ export default {
 
 ## devOptions
 
-**类型**:`object`(option名称: value)
+**类型**:`object`(option 名称: value)
 
 配置 Snowpack 开发服务器。
 
@@ -278,9 +277,9 @@ Snowpack 的 HMR Websocket 运行的端口。
 
 **类型**：`string[]`**示例**。`"external":["fs"]`
 
-将一些import标记为外部。Snowpack 会忽略这些import，并在你的最终构建中保持它们的原样。
+将一些 import 标记为外部。Snowpack 会忽略这些 import，并在你的最终构建中保持它们的原样。
 
-这是一个高级功能。任何主要的浏览器都不支持直接import，所以当一个被忽略的import直接发送到浏览器时，通常不会生效。除非你有一个特定的用例需要它，否则这很可能会失败。
+这是一个高级功能。任何主要的浏览器都不支持直接 import，所以当一个被忽略的 import 直接发送到浏览器时，通常不会生效。除非你有一个特定的用例需要它，否则这很可能会失败。
 
 ### packageOptions.source
 
@@ -298,7 +297,7 @@ JavaScript npm 包可以以两种不同的方式被处理：**local**和**remote
 
 **类型**：`string[]`
 
-用 Snowpack 安装的已知的依赖项。用于安装任何不能被自动import扫描器检测到的依赖项（例如： CSS 文件）。
+用 Snowpack 安装的已知的依赖项。用于安装任何不能被自动 import 扫描器检测到的依赖项（例如： CSS 文件）。
 
 #### packageOptions.polyfillNode
 
@@ -325,7 +324,7 @@ export default {
 };
 ```
 
-当`source="remote"`时，所有 Node.js 包都会被polyfill。配置该选项仅在`source="local"`模式下支持。
+当`source="remote"`时，所有 Node.js 包都会被 polyfill。配置该选项仅在`source="local"`模式下支持。
 
 #### packageOptions.env
 
@@ -349,7 +348,7 @@ export default {
 
 **类型**：`string[]`**示例**。`"packageExportLookupFields"。["svelte"]`
 
-为`package.json`的["exports"映射](https://nodejs.org/api/packages.html#packages_package_entry_points)设置自定义lookup字段
+为`package.json`的["exports"映射](https://nodejs.org/api/packages.html#packages_package_entry_points)设置自定义 lookup 字段
 
 这个选项只在`source="local"`模式下支持。`source="remote"`还不支持这个功能。
 
@@ -377,7 +376,7 @@ Snowpack 内部使用 Rollup 来安装包。这个`rollup`配置选项让你更�
 
 **类型**：`string`**默认** `：https://pkg.snowpack.dev`
 
-从哪里导入软件包的remote source。当你导入一个新的包时，Snowpack 将从这个 URL 中获取这些资源。
+从哪里导入软件包的 remote source。当你导入一个新的包时，Snowpack 将从这个 URL 中获取这些资源。
 
 目前，origin 必须实现一个特定的响应格式，以便 Snowpack 能够为 ESM 解析。在 Snowpack 的未来版本中，我们计划增加对自定义 CDN 和导入源的支持。
 
@@ -446,15 +445,15 @@ Snowpack 内部使用 Rollup 来安装包。这个`rollup`配置选项让你更�
 
 **类型**：`boolean`**默认**：`false`
 
-生成sourcemap。
+生成 sourcemap。
 
-**Experimental**: 仍在施工，在这项支持最终完成之前，你在使用sourcemap时可能会遇到一些问题。
+**Experimental**: 仍在施工，在这项支持最终完成之前，你在使用 sourcemap 时可能会遇到一些问题。
 
 ### buildOptions.watch
 
 **类型**：`boolean`**默认**：`false`
 
-通过一个文件观察器运行 Snowpack 的build pipeline。当你有一个自定义的前端服务器（例如：Rails、PHP 等）而不能使用 Snowpack 开发服务器时，这个选项对本地开发有效。
+通过一个文件观察器运行 Snowpack 的 build pipeline。当你有一个自定义的前端服务器（例如：Rails、PHP 等）而不能使用 Snowpack 开发服务器时，这个选项对本地开发有效。
 
 ### buildOptions.htmlFragments
 
@@ -494,6 +493,6 @@ HTML 片段是指不以`<！doctype html>`开头的 HTML 文件。
 
 ## experiments
 
-**类型**:`object`(选项名称: 值)
+**类型**:`object`(option name: value)
 
 这一部分目前是空的!在未来，这部分可能会被用于实验性的和尚未最终确定的内容。
