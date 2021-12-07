@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/content.astro
 title: 打包流程
-description: Snowpack Build creates a production-ready website with or without a bundler
+description: Snowpack,Build,打包,原理,构建,免打包,流程
 ---
 
 ![build output example](/img/snowpack-build-example.png)

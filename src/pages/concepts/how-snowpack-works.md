@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/content.astro
 title: Snowpack运行机制
-description: Snowpack serves your application unbundled during development. Each file is built only once and is cached until it changes.
+description: Snowpack,原理,机制,Build,打包,构建
 ---
 
 ### 摘要

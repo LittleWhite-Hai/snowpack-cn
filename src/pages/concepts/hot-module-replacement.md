@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/content.astro
 title: 模块热替换(HMR)
-description: Snowpack's ESM-powered unbundled development means near-instant single file builds that only take 10-25ms to load and update in the browser.
+description: HRM,模块热替换,Snowpack,快速刷新,ESM
 ---
 
 模块热替换（HMR）是将文件更新推送到浏览器而不触发全页面刷新的能力。想象一下，改变一些 CSS，点击保存，无需刷新就能立即看到变化反映在页面上。这就是 HMR。

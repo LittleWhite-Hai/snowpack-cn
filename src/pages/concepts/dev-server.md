@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/content.astro
 title: 开发时服务
-description: Snowpack's dev server is fast because it only rebuilds the files you change. Powered by ESM (ES modules).
+description: Snowpack,热更新,ESM,开发时服务
 ---
 
 ![dev command output example](/img/snowpack-dev-startup-2.png)
