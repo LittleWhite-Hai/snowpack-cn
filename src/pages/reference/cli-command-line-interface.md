@@ -31,7 +31,7 @@ $ snowpack build --clean
 $ snowpack build --no-clean
 ```
 
-**CLI options 项将与你的配置文件值一起生效(CLI options 优先)**。下面列出的每一个配置值都可以作为 CLI 的 option 传递。此外，Snowpack 还支持以下 option。
+**CLI options 将与你的配置文件值一起生效(CLI options 优先)**。下面列出的每一个配置值都可以作为 CLI 的 options 。此外，Snowpack 还支持以下 option。
 
 - `--config [path]` 设置项目配置文件的路径。
 - `--help` 显示帮助。
