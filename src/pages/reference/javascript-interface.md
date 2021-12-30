@@ -4,9 +4,9 @@ title: JavaScript API
 description: Snowpack's JavaScript API is for anyone who wants to integrate with some custom build pipeline or server-side rendering engine.
 ---
 
-大多数用户将通过[命令行](/reference/cli-command-line-interface)界面（CLI）与Snowpack互动。然而，Snowpack也提供了一个JavaScript API，供任何人在此基础上构建。
+大多数用户将通过[命令行](/reference/cli-command-line-interface)界面（CLI）与 Snowpack 互动。然而，Snowpack 也提供了一个 JavaScript API，供任何人在此基础上 build。
 
-本页包含了关于Snowpack的公共API和所有相关数据类型的参考信息。在项目中定义的所有数据类型（公共和私有）的完整集合可以在包的[`types.d.ts`](https://unpkg.com/browse/snowpack@3.0.10/lib/types.d.ts) 文件中找到。
+本页包含了关于 Snowpack 的公共 API 和所有相关数据类型的参考信息。在项目中定义的所有数据类型（公共和私有）的完整集合可以在包的[`types.d.ts`](https://unpkg.com/browse/snowpack@3.0.10/lib/types.d.ts) 文件中找到。
 
 ### createConfiguration()
 
@@ -17,7 +17,7 @@ import {createConfiguration} from 'snowpack';
 const config = createConfiguration({...});
 ```
 
-几乎所有你用Snowpack做的事情都需要一个配置对象。Snowpack被设计成可以在零配置的情况下运行，这个函数接受的`config`参数可以是完整的、空的，或者只包含几个属性。配置对象的其余部分将被填入Snowpack通常的一组默认值，在我们的[snowpack.config.mjs文档](/reference/configuration)中有介绍。
+几乎所有 Snowpack 做的事情都需要一个配置对象。Snowpack 被设计成可以在零配置的情况下运行，这个函数接受的`config`参数可以是完整的、空的，或者只包含几个属性。配置对象的其余部分将被填入 Snowpack 通常的一组默认值，在我们的[snowpack.config.mjs 文档](/reference/configuration)中有介绍。
 
 最简单的方法是，`SnowpackUserConfig`是外部记录的配置格式，而`SnowpackConfig`是我们的内部表示，所有可选/未定义的值都是用实际的默认值填充的。
 
@@ -44,11 +44,11 @@ const config = createConfiguration({...});
 const server = await startServer({config}); // returns: SnowpackDevServer
 ```
 
-启动一个新的Snowpack开发服务器实例。这相当于在命令行上运行`snowpack dev`。
+启动一个新的 Snowpack 开发服务器实例。这相当于在命令行上运行`snowpack dev`。
 
-一旦启动，你可以从开发服务器上加载文件，Snowpack将按照要求构建它们。这是一个需要理解的重要功能。Snowpack的开发服务器在启动时不做任何文件构建，而是在通过服务器的`loadUrl`方法请求时才构建文件。
+一旦启动，你可以从开发服务器上加载文件，Snowpack 将按照要求构建它们。这是一个需要理解的重要功能。Snowpack 的开发服务器在启动时不做任何文件构建，而是在通过服务器的`loadUrl`方法请求时才构建文件。
 
-### Snowpack开发服务器(SnowpackDevServer)
+### Snowpack 开发服务器(SnowpackDevServer)
 
 #### SnowpackDevServer.port
 
@@ -63,9 +63,9 @@ const server = await startServer({config});
 const {contents} = server.loadUrl('/dist/index.js', {...});
 ```
 
-加载一个文件并返回结果。在第一次请求一个URL的时候，这将启动一个构建，然后在服务器的生命周期内为所有未来的请求进行缓存。
+加载一个文件并返回结果。在第一次请求一个 URL 的时候，这将启动一个构建，然后在服务器的生命周期内为所有未来的请求进行缓存。
 
-你可以通过`allowStale: true`来启用Snowpack的冷缓存，以获得过去会话的缓存结果。然而，Snowpack对冷缓存数据是否是最新的不提供任何保证。
+你可以通过`allowStale: true`来启用 Snowpack 的冷缓存，以获得过去会话的缓存结果。然而，Snowpack 对冷缓存数据是否是最新的不提供任何保证。
 
 #### SnowpackDevServer.getUrlForFile()
 
@@ -77,24 +77,24 @@ const fileUrl = server.getUrlForFile('/path/to/index.jsx');
 const {contents} = server.loadUrl(fileUrl, {...});
 ```
 
-一个辅助函数，用于查找任何源文件的最终托管URL。与`loadUrl`结合使用时非常有用，因为你可能只知道一个文件在磁盘上的位置而不知道它的最终托管URL。
+一个辅助函数，用于查找任何源文件的最终托管 URL。与`loadUrl`结合使用时非常有用，因为你可能只知道一个文件在磁盘上的位置而不知道它的最终托管 URL。
 
 #### SnowpackDevServer.getUrlForPackage()
 
 `getUrlForPackage(packageSpec: string) => Promise[string]。`
 
 ```ts
-const server = await startServer({config});
-const pkgUrl = await server.getUrlForPackage('preact');
+const server = await startServer({ config });
+const pkgUrl = await server.getUrlForPackage("preact");
 ```
 
-一个用于查找任何依赖关系的最终托管URL的辅助函数。
+一个用于查找任何依赖关系的最终托管 URL 的辅助函数。
 
 #### SnowpackDevServer.sendResponseError()
 
 `sendResponseError(req: http.IncomingMessage, res: http.ServerResponse, status: number) => void;`
 
-一个辅助函数，用于在服务器响应处理程序中发送一个错误响应。在将Snowpack与Express、Koa或任何其他Node.js服务器集成时非常有用。
+一个辅助函数，用于在服务器响应处理程序中发送一个错误响应。在将 Snowpack 与 Express、Koa 或任何其他 Node.js 服务器集成时非常有用。
 
 #### SnowpackDevServer.onFileChange()
 
@@ -107,26 +107,26 @@ const pkgUrl = await server.getUrlForPackage('preact');
 `shutdown() => Promise;`
 
 ```ts
-const server = await startServer({config});
+const server = await startServer({ config });
 await server.shutdown();
 ```
 
-关闭Snowpack开发服务器。清理任何长期运行的命令、文件观察器等。
+关闭 Snowpack 开发服务器。清理任何长期运行的命令、文件观察器等。
 
 #### SnowpackDevServer.getServerRuntime()
 
 `getServerRuntime({invalidateOnChange?: boolean}) => ServerRuntime;`
 
 ```ts
-const server = await startServer({config});
+const server = await startServer({ config });
 const runtime = server.getServerRuntime();
-const {helloWorld} = (await runtime.importModule('/dist/index.js')).exports;
+const { helloWorld } = (await runtime.importModule("/dist/index.js")).exports;
 helloWorld();
 ```
 
-返回一个ESM服务器运行时间，让Node.js直接从Snowpack的构建缓存中导入模块。这对SSR、测试运行前端代码以及构建管道的整体统一很有用。
+返回一个 ESM 服务器运行时间，让 Node.js 直接从 Snowpack 的构建缓存中导入模块。这对 SSR、测试运行前端代码以及构建管道的整体统一很有用。
 
-欲了解更多信息，请查看我们关于使用`getServerRuntime()`API的[服务器端渲染](/guides/server-side-render)的指南。
+欲了解更多信息，请查看我们关于使用`getServerRuntime()`API 的[服务器端渲染](/guides/server-side-render)的指南。
 
 #### 服务器运行时间（ServerRuntime）
 
@@ -181,11 +181,11 @@ const {result} = await build({config}); // returns: SnowpackBuildResult
 `getUrlForFile(fileLoc: string, config: SnowpackConfig) => string | null`
 
 ```js
-import {getUrlForFile} from 'snowpack';
-const fileUrl = getUrlForFile('/path/to/file.js', config);
+import { getUrlForFile } from "snowpack";
+const fileUrl = getUrlForFile("/path/to/file.js", config);
 ```
 
-一个辅助函数，用于查找任何源文件的最终托管URL。与`loadUrl`结合使用时非常有用，因为你可能只知道一个文件在磁盘上的位置而不知道它的最终托管URL。
+一个辅助函数，用于查找任何源文件的最终托管 URL。与`loadUrl`结合使用时非常有用，因为你可能只知道一个文件在磁盘上的位置而不知道它的最终托管 URL。
 
 类似于`SnowpackDevServer.getUrlForFile()`，但需要第二个`config`参数来告知结果。
 
@@ -194,16 +194,16 @@ const fileUrl = getUrlForFile('/path/to/file.js', config);
 `clearCache() => Promise[void].`
 
 ```js
-import {clearCache} from 'snowpack';
+import { clearCache } from "snowpack";
 await clearCache();
 ```
 
-相当于使用`snowpack`CLI的`--reload`标志。清除Snowpack中的所有缓存数据。对于故障排除很有用，或者在做了一些Snowpack无法检测到的改变之后，清除缓存。
+相当于使用`snowpack`CLI 的`--reload`标志。清除 Snowpack 中的所有缓存数据。对于故障排除很有用，或者在做了一些 Snowpack 无法检测到的改变之后，清除缓存。
 
-### 记录器
+### logger
 
 ```js
-import {logger} from 'snowpack';
+import { logger } from "snowpack";
 ```
 
-你可以通过导入Snowpack的内部日志器来直接控制它。请注意，这是一个高级功能，对于大多数用户来说并不需要。相反，使用`verbose`配置选项来启用调试日志和控制日志信息的冗长性。
+你可以通过导入 Snowpack 的内部日志器来直接控制它。请注意，这是一个高级功能，对于大多数用户来说并不需要。相反，使用`verbose`配置选项来启用调试日志和控制日志信息的冗长性。
