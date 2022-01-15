@@ -5,8 +5,8 @@ import Hero from '../components/Hero.astro';
 import BaseHead from '../components/BaseHead.astro';
 import BaseLayout from '../components/BaseLayout.astro';
 
-let title = 'Snowpack';
-let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型Web构建工具.';
+let title = 'Snowpack|Snowpack中文-更快的前端打包工具';
+let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型Web构建工具.本网站专业为您提供Snowpack,Snowpack中文的相关信息,想要了解更多详情,请联系我们.';
 ---
 
 <!doctype html>
@@ -90,7 +90,10 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
     }
   </style>
   <BaseHead title={title} description={description} permalink="TODO" />
-  <meta name=”Keywords” Content=”中文 Snowpack,配置,路由,免打包,文档,技术文档,api″>
+<meta content="index,follow" name="GOOGLEBOT">
+<meta content="index,follow" name="robots">
+  <meta content="Snowpack中文"  name="Author">
+
 </head>
 
 <body>
@@ -199,5 +202,13 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
   </BaseLayout>
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+  <div style="color:white">
+  keywords：<a href="http://snowpack.cn/sitemap.html" title="Snowpack中文"target="_blank">
+  <strong  style="color:white">Snowpack中文</strong></a> 
+  <a href="http://snowpack.cn/sitemap.xml" title="Snowpack中文"target="_blank">
+  <strong style="color:white">Snowpack中文</strong></a>
+  </div>
+  
+
 </body>
 </html>
