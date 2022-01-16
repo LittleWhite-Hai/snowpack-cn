@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://www.snowpack.cn/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/tutorials/quick-start/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/concepts/how-snowpack-works/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/concepts/dev-server/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/concepts/build-pipeline/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/concepts/hot-module-replacement/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/tutorials/getting-started/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/tutorials/react/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/tutorials/svelte/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/tutorials/vue/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/reference/configuration/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/reference/cli-command-line-interface/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/reference/javascript-interface/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/reference/plugins/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/reference/environment-variables/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/reference/hot-module-replacement/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/reference/supported-files/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/reference/common-error-details/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/plugins/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/news/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/posts/2020-05-26-snowpack-2-0-release/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/optimize-and-bundle/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/sass/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/testing/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/routing/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/server-side-render/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/https-ssl-certificates/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/connecting-tools/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/streaming-imports/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/plugins/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/upgrade-guide/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/babel/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/jest/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/postcss/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/preact/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/tailwind-css/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/wasm/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/web-test-runner/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/web-worker/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/workbox/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.snowpack.cn/guides/hmr/</loc>
+  <lastmod>2022-01-15T14:40:27+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
