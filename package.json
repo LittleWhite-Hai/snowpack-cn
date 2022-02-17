@@ -10,6 +10,10 @@
   "dependencies": {
     "astro": "^0.19.4",
     "date-fns": "^2.19.0",
-    "docsearch.js": "^2.6.3"
+    "docsearch.js": "^2.6.3",
+    "esbuild": "^0.14.1"
+  },
+  "devDependencies": {
+    "snowpack": "^3.8.8"
   }
 }
