@@ -55,7 +55,7 @@ npm install react react-dom --save
 
 ## 创建你的第一个 React 组件
 
-React 依赖于一种名为 JSX 的特殊模板语言。如果你熟悉 React，那么你已经知道了 JSX：它是 React 的模板语言，能让你直接在你的 JavaScript 代码中写一些像`<App />`或`<Header><Header />`的东西。
+React 依赖于一种名为 JSX 的特殊模板语言。如果你熟悉 React，那么你已经知道了 JSX：它是 React 的模板语言，能让你直接在 JavaScript 代码中写一些像`<App />`或`<Header><Header />`的东西。
 
 Snowpack 在使用`.jsx`扩展名的文件中内置了对 JSX 的支持。这意味着在编写第一个 React 组件时，不需要任何插件或配置。将`index.js`文件重命名为`index.jsx`，这样 Snowpack 就知道要处理文件中的 JSX。
 
@@ -63,7 +63,7 @@ Snowpack 在使用`.jsx`扩展名的文件中内置了对 JSX 的支持。这意
 mv index.js index.jsx
 ```
 
-> 💡 提示：你不需要更新你的`index.html`脚本标签引用以指向`index.jsx`。浏览器不认识 JSX(或 TypeScript)，所以任何要被编译为 JS 的文件在最终的构建产物中都会被编译为`.js`。当你在 HTML 的`<script src="">`和`<Link href="">`中引用构建好的文件时，最好将这个提示牢记。
+> 💡 提示：你不需要更新`index.html`脚本标签引用以指向`index.jsx`。浏览器不认识 JSX(或 TypeScript)，所以任何要被编译为 JS 的文件在最终的构建产物中都会被编译为`.js`。当你在 HTML 的`<script src="">`和`<Link href="">`中引用构建好的文件时，最好将这个提示牢记。
 
 现在你可以在`index.jsx`中导入 React，并添加一个简单的测试组件，以确保它能正常运行。
 
@@ -279,7 +279,7 @@ export default App;
 
 React 项目通常包含交互的并且包含 state。例如，你正在构建的这个项目有一个 state 维护着在页面上停留的秒数。当开发组件包含 state 时，编辑代码并且不丢失 state 常常很有用。React 的快速刷新机制可以在不刷新整个页面的前提下响应更新。学习如何添加这个功能同时也是熟悉 Snowpack 插件的一个很好的过程。Snowpack 从一个最小的结构开始，它的设计让你可以通过插件系统添加你需要的东西。
 
-首先，在你的项目中启用[HMR](/concepts/hot-module-replacement)。HMR 是让 Snowpack 在不刷新整个页面的情况下向浏览器推送更新的机制，这是快速刷新的预备条件。你可以通过在`src/index.jsx`文件中添加一小段代码来为 React 启用 HMR。
+首先，在项目中启用[HMR](/concepts/hot-module-replacement)。HMR 是让 Snowpack 在不刷新整个页面的情况下向浏览器推送更新的机制，这是快速刷新的预备条件。你可以通过在`src/index.jsx`文件中添加一小段代码来为 React 启用 HMR。
 
 ```diff
   ReactDOM.render(
@@ -326,7 +326,7 @@ npm install @snowpack/plugin-react-refresh --save-dev
 
 ## 更进一步
 
-干得好 1 你现在已经准备好用 Snowpack 构建你梦想中的 React 项目了。想在 Twitter 上向全世界展示你的成就吗？请点击下面的按钮。
+干得好 你现在已经可以用 Snowpack 构建你梦想中的 React 项目了。想在 Twitter 上向全世界展示你的成就吗？请点击下面的按钮。
 
 [Twitter](https://twitter.com/share?ref_src=twsrc%5Etfw)
 

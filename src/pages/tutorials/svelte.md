@@ -310,9 +310,9 @@ export default app;
 
 ## 更进一步
 
-干得好!现在你已经准备好用 Snowpack 构建你梦想中的 Svelte 项目了。想在推特上向全世界展示你的成就吗？请点击下面的按钮。
+干得好!现在你已经准备好用 Snowpack 构建你梦想中的 Svelte 项目了。想在 twitter 上向全世界展示你的成就吗？请点击下面的按钮。
 
-[推特](https://twitter.com/share?ref_src=twsrc%5Etfw)
+[Twitter](https://twitter.com/share?ref_src=twsrc%5Etfw)
 
 在这一点上，你已经掌握了基础知识，为任何 Svelte 项目提供了一个良好的开端。官方的[Snowpack Svelte](https://github.com/snowpackjs/snowpack/tree/main/create-snowpack-app/app-template-svelte)例子还有一些其他的工具，你可能会觉得有用。
 

@@ -14,7 +14,7 @@ description: Snowpack,Build,打包,原理,构建,免打包,流程
 
 默认情况下，`snowpack build`将使用与`dev`命令相同的免打包方式以构建网站。这对大多数项目来说是很好的，但你也可能仍然想为生产环境打包。旧浏览器兼容、代码压缩、代码分割、tree-shaking、不可达代码清理以及其他性能优化都可以在 Snowpack 中通过打包来处理。
 
-打包器通常需要几十行甚至几百行的配置，但在 Snowpack 中，它只是一个单行的插件，不需要配置。之所以能做到这一点，是因为 Snowpack 在将你的应用程序发送到打包器*之前* 就已经构建好了，所以打包器永远不会看到你的源代码（JSX、TS、Svelte、Vue 等），而只需要关心构建常规的 HTML、CSS 和 JS。
+打包器通常需要几十行甚至几百行的配置，但在 Snowpack 中，它只是一个单行的插件，不需要配置。之所以能做到这一点，是因为 Snowpack 在将应用程序发送到打包器*之前* 就已经构建好了，所以打包器永远不会看到源代码（JSX、TS、Svelte、Vue 等），而只需要关心构建常规的 HTML、CSS 和 JS。
 
 ```js
 // Bundlers plugins are pre-configured to work with Snowpack apps.

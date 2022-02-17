@@ -42,11 +42,11 @@ pnpm run snowpack [command]
 
 这将启动用于开发的本地服务。默认情况下会向浏览器提供当前的工作目录，并将寻找一个`index.html`文件来启动。你可以通过["mount "](/reference/configuration)配置提供服务的目录。
 
-### 构建你的项目
+### 构建项目
 
     snowpack build
 
-这将把你的项目构建成一个静态的`build/`目录，你可以在任何地方部署。你可以通过[configuration](/reference/configuration)来定制你的构建。
+这将把项目构建成一个静态的`build/`目录，你可以在任何地方部署。你可以通过[configuration](/reference/configuration)来定制构建。
 
 ### 查看所有命令和选项
 

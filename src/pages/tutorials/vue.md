@@ -5,6 +5,8 @@ description: "Get started with this in-depth tutorial on how to build Vue applic
 date: 2020-12-01
 sidebarTitle: Vue
 tags: communityGuide
+cover: "/img/VueGuide.png"
+img: "/img/VueGuide.png"
 ---
 
 Snowpack 非常适用于任何规模的[Vue](https://vuejs.org)项目。它很容易上手，可以扩展到包含数千个组件和页面的项目而不影响开发速度。与传统的 Vue 应用工具不同，Snowpack 让你免于被复杂的打包环境和配置文件所困扰。

@@ -30,7 +30,7 @@ mkdir my-first-snowpack
 cd my-first-snowpack
 ```
 
-Snowpack 是一个从 npm 安装的软件包。在你的项目目录下创建一个`package.json`文件来管理 npm 项目依赖。在项目中运行这个命令来创建一个空的`package.json`。
+Snowpack 是一个从 npm 安装的软件包。在项目目录下创建一个`package.json`文件来管理 npm 项目依赖。在项目中运行这个命令来创建一个空的`package.json`。
 
 ```bash
 npm init
@@ -116,7 +116,7 @@ Snowpack 只扫描`index.html`中导入的文件，所以你要把`index.js`添�
   </body>
 ```
 
-在 Snowpack 网站上查看控制台，你能看到 "Hello World！"。修改一个模块试试，Snowpack 会重建该模块而不重建其他代码。Snowpack**单独构建每个文件，并无限期地缓存它们**。你的开发环境不会对一个文件进行多次构建，在文件改变之前，浏览器也不会下载文件两次。这就是免打包式开发的真正力量，也是 Snowpack 如此快速的秘密所在。
+在 Snowpack 网站上查看控制台，你能看到 "Hello World！"。修改一个模块试试，Snowpack 会重建该模块而不重建其他代码。Snowpack**单独构建每个文件，并无限期地缓存它们**。开发环境不会对一个文件进行多次构建，在文件改变之前，浏览器也不会下载文件两次。这就是免打包式开发的真正力量，也是 Snowpack 如此快速的秘密所在。
 
 <div class="frame"><img src="/img/guides/getting-started/hello-world.gif" alt="Gif showing the code next to the project running in the browser. On save the console shows 'Hello World!'. On edit and save of the `hello-world.js` file to be 'Hello everyone!' instead, that instantly shows in the browser console." class="screenshot"/></div>
 
@@ -139,7 +139,7 @@ Snowpack 将任何 npm 包构建成 ESM 模块。npm 包主要是使用模块语
 
 Snowpack 让你在浏览器中直接导入 npm 包。即使软件包采用的是 CommonJS，Snowpack 也会在将其传给浏览器之前将其向上转换为 ESM。
 
-> 💡 提示：当你启动开发服务器或构建项目时，你可能会看到 Snowpack 正在 "安装依赖" 的信息。这意味着 Snowpack 正在转换你的依赖，以在浏览器中运行。
+> 💡 提示：当你启动开发服务器或构建项目时，你可能会看到 Snowpack 正在 "安装依赖" 的信息。这意味着 Snowpack 正在转换依赖，以在浏览器中运行。
 
 从 npm 安装 canvas-confetti 包，并用以下命令使用它。
 
@@ -159,7 +159,7 @@ helloWorld();
 + })({ particleCount: 200, spread: 200 });
 ```
 
-> 💡 提示：你知道吗，在 Snowpack 中，如果你愿意，你也可以直接将这段代码添加到你的 HTML 中
+> 💡 提示：你知道吗，在 Snowpack 中，如果你愿意，你也可以直接将这段代码添加到 HTML 中
 
 现在你应该可以看到一个漂亮的纸屑效果。
 
@@ -206,7 +206,7 @@ body {
 
 ```
 
-现在你可以在你的终端运行这个。
+现在你可以在终端运行这个：
 
 ```bash
 npm run build
