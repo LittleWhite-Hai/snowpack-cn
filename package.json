@@ -4,11 +4,10 @@
   "version": "3.0.0",
   "scripts": {
     "start": "astro dev",
-    "build": "astro build",
-    "copy": "node scripts/copy.js"
+    "build": "astro build"
   },
   "dependencies": {
-    "astro": "^0.19.4",
+    "astro": "^0.19.1",
     "date-fns": "^2.19.0",
     "docsearch.js": "^2.6.3",
     "esbuild": "^0.14.1"
