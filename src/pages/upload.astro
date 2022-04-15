@@ -1,0 +1,265 @@
+---
+let title = '';
+let description = '';
+---
+<!doctype html>
+<html style="height:100%">
+
+<head>
+  <meta charset="utf-8">
+  <title>select a file</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: rgb(50, 83, 117);
+    }
+
+    .drag-area {
+      position: relative;
+      border: 2px dashed #fff;
+      height: 500px;
+      width: 700px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .drag-area.active {
+      border: 2px solid #fff;
+    }
+
+    .drag-area .icon {
+      font-size: 100px;
+      color: #fff;
+    }
+
+    .drag-area header {
+      font-size: 30px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .drag-area span {
+      font-size: 25px;
+      font-weight: 500;
+      color: #fff;
+      margin: 10px 0 15px 0;
+    }
+
+    .drag-area button {
+      padding: 10px 25px;
+      font-size: 20px;
+      font-weight: 500;
+      border: none;
+      outline: none;
+      background: #fff;
+      color: #5256ad;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .drag-area img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    #modal-overlay {
+      visibility: hidden;
+      position: absolute;
+      /* 使用绝对定位或固定定位 */
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.5)
+        /* 背景半透明 */
+    }
+
+    /* 模态框样式 */
+    #modal-data {
+      height: 175px;
+      width: 550px;
+      margin: 100px auto;
+      margin-top: 20%;
+      background-color: #fff;
+      border: 1px solid #000;
+      padding: 10px;
+
+      padding-bottom: 5px;
+      border-radius: 8px;
+      opacity: 0.8;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #closeicon {
+      float: right;
+      cursor: pointer;
+    }
+
+    #modal-content {
+      clear: right;
+      height: 110px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #upload-note {
+      visibility: hidden;
+      position: absolute;
+      bottom: 5px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    #progressBarBox {
+      color: gray;
+    }
+  </style>
+</head>
+
+<body style="height:100%">
+
+  <div id="modal-overlay" onclick="closeModal()">
+
+    <div id="modal-data">
+
+      <svg onclick="closeModal()" id="closeicon" width="24" height="24" viewBox="0 0 48 48" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" fill="white" fill-opacity="0.01" />
+        <path d="M8 8L40 40" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M8 40L40 8" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <div id="modal-content">
+        <p>
+          文件：<strong id="file-name-tag">xxx</strong> 已成功上传到服务器
+          <br />访问链接：snowpack.cn/xxx/download 将文件下载到本地
+        </p>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="drag-area">
+    <header>拖拽上传</header>
+    <span>或</span>
+    <button>选择文件</button>
+    <input type="file" hidden>
+    <div id="progressBarBox">
+      <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+      <h3 id="status"></h3>
+      <p id="loaded_n_total"></p>
+    </div>
+
+    <div id="upload-note">
+      <p>链接snowpack/xxx/upload 中已保存文件xxx.xxx <br />
+        再次上传将会替换掉这个文件，替换之前请确保它是你的</p>
+    </div>
+  </div>
+
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+
+  const dropArea = document.querySelector(".drag-area"),
+    dragText = dropArea.querySelector("header"),
+    button = dropArea.querySelector("button"),
+    input = dropArea.querySelector("input"),
+    mymodal = document.getElementById('modal-overlay'),
+    modalData = document.getElementById('modal-data'),
+    progressBar = document.getElementById('progressBar'),
+    loadedTotal = document.getElementById('loaded_n_total'),
+    status = document.getElementById('status'),
+    fileNameTag = document.getElementById('file-name-tag');
+
+
+  button.onclick = () => {
+    input.click(); //if user click on the button then the input also clicked
+  }
+
+  //If user Drag File Over DropArea
+  dropArea.addEventListener("dragover", (event) => {
+    event.preventDefault(); //preventing from default behaviour
+    dropArea.classList.add("active");
+    dragText.textContent = "Release to Upload File";
+  });
+
+  //If user leave dragged File from DropArea
+  dropArea.addEventListener("dragleave", () => {
+    dropArea.classList.remove("active");
+    dragText.textContent = "Drag & Drop to Upload File";
+  });
+
+  //If user drop File on DropArea
+  dropArea.addEventListener("drop", (event) => {
+    event.preventDefault(); //preventing from default behaviour
+    upload(event.dataTransfer.files[0]); //calling function
+  });
+  input.addEventListener("change", function () {
+    dropArea.classList.add("active");
+    upload(this.files[0]); //calling function
+  });
+  function upload(file) {
+    var formData = new FormData();
+    formData.append("file", file);
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+        if (xhr.responseText === 'okk') {
+          fileNameTag.innerHTML = file.name
+          mymodal.style.visibility = "visible"
+        }
+
+        // info.innerHTML = xhr.responseText;
+      }
+    };
+    xhr.upload.addEventListener("progress", progressHandler, false);
+    // xhr.open("POST", "http://127.0.0.1:3001/" + getUserPath() + "/upload");
+    xhr.open("POST", "http://127.0.0.1:3001/upload");
+    xhr.send(formData);
+  }
+  function progressHandler(event) {
+    loadedTotal.innerHTML = "Uploaded " + event.loaded + " bytes of " + event.total;
+    var percent = (event.loaded / event.total) * 100;
+    progressBar.value = Math.round(percent);
+    status.innerHTML = Math.round(percent) + "% 上传进度";
+  }
+  function closeModal() {
+    mymodal.style.visibility = 'hidden'
+  }
+  modalData.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+  function getUserPath() {
+    let urlWithDomain = location.href.split('//')[1];
+    if (urlWithDomain.endsWith('/')) urlWithDomain = urlWithDomain.slice(0, -1);
+    return urlWithDomain.split('/').slice(1, -1).join('/');
+  }
+
+
+</script>
+
+</html>
