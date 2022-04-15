@@ -11,14 +11,15 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
 
 <!doctype html>
 <html>
+
 <head>
   <style lang="scss">
-    @use '../../public/styles/var' as *;
+    @use '../../public/styles/var'as *;
 
     .layout {
       display: grid;
       grid-template-areas: "main";
-    
+
       @media (min-width: $breakpoint-m) {
         grid-template-areas: "nav main";
         grid-template-columns: 16rem auto;
@@ -83,7 +84,7 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
       margin: 2em 4.2em 2em 0;
       text-align: center;
 
-      > * {
+      >* {
         margin-left: 0.5rem;
         margin-right: 0.5rem;
       }
@@ -91,9 +92,9 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
   </style>
   <BaseHead title={title} description={description} permalink="TODO" />
   <meta content="Snowpack,Snowpack中文,文档,官网" name="keywords">
-<meta content="index,follow" name="GOOGLEBOT">
-<meta content="index,follow" name="robots">
-  <meta content="Snowpack中文"  name="Author">
+  <meta content="index,follow" name="GOOGLEBOT">
+  <meta content="index,follow" name="robots">
+  <meta content="Snowpack中文" name="Author">
 
 </head>
 
@@ -107,22 +108,21 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
         </aside>
 
         <article class="layout-main">
-          <a class="img-banner" href="https://osawards.com/javascript/2020" target="_blank"
-            rel="noopener noreferrer">
+          <a class="img-banner" href="https://osawards.com/javascript/2020" target="_blank" rel="noopener noreferrer">
             <img src="/img/JSAwardWinner.png" alt="2020 JavaScript Open Source Award Winner banner" />
           </a>
 
           <div class="markdown-body feature-list">
-            <div class={'t' + 'o' + 'p'}>
+            <div class={'t' + 'o' + 'p' }>
               <h2 id="what-is-snowpack%3F">Snowpack 是什么?</h2>
               <p>
                 <strong>
-                Snowpack 是一个用在现代Web应用上的，快如闪电的前端构建工具。
+                  Snowpack 是一个用在现代Web应用上的，快如闪电的前端构建工具。
                 </strong>
-                 在你的开发工作流程中，它可以替代更重、更复杂的打包工具，如 webpack或Parcel。
-                 Snowpack利用了JavaScript的本地模块系统(<a
+                在你的开发工作流程中，它可以替代更重、更复杂的打包工具，如 webpack或Parcel。
+                Snowpack利用了JavaScript的本地模块系统(<a
                   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">ESM</a>)以避免不必要的工作，无论你的项目膨胀地多大，它都能保持快速。
- 
+
               </p>
               <p>
                 只要试过一次，就再也回不去了。
@@ -135,16 +135,16 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
                 Snowpack的免打包web开发服务器可以在
                 <!-- Snowpack's unbundled web development server -->
                 <strong>
-                50毫秒内启动
-                <!-- starts up in 50ms or less -->
+                  50毫秒内启动
+                  <!-- starts up in 50ms or less -->
                 </strong>
                 ，并且在大型项目中保持快速。
                 <!-- and stays fast in large projects. -->
               </li>
               <li class="bullet">
                 <h3 class="bullet-heading">
-                一次打包，永久缓存
-                <!-- Build once, cache forever -->
+                  一次打包，永久缓存
+                  <!-- Build once, cache forever -->
                 </h3>
                 Snowpack 从不重复打包相同的文件。这项技术由浏览器自带的Javascript模块系统(ESM)所驱动。
                 <!-- Snowpack never builds the same file twice. Powered by
@@ -152,10 +152,11 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
               </li>
               <li class="bullet">
                 <h3 class="bullet-heading">
-                热更新。轻快刷新
-                <!-- HMR feat. Fast Refresh -->
+                  热更新。轻快刷新
+                  <!-- HMR feat. Fast Refresh -->
                 </h3>
-                在React，Preact和Svelte场景下，凭借<a href="/concepts/hot-module-replacement">HMR + Fast Refresh</a>即可做到不刷新就可以立刻在浏览器中响应文件修改
+                在React，Preact和Svelte场景下，凭借<a href="/concepts/hot-module-replacement">HMR + Fast
+                  Refresh</a>即可做到不刷新就可以立刻在浏览器中响应文件修改
                 <!-- No refresh required. See changes reflected instantly in the
                 browser with
                 <a href="/concepts/hot-module-replacement">HMR + Fast Refresh</a>
@@ -163,8 +164,8 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
               </li>
               <li class="bullet">
                 <h3 class="bullet-heading">
-                开箱即用
-                <!-- Out-of-the-box support -->
+                  开箱即用
+                  <!-- Out-of-the-box support -->
                 </h3>
                 Snowpack内置JSX, TypeScript, React, Preact, Css和<a href="/reference/supported-files">更多</a>模块.
                 <!-- Enjoy Snowpack's built-in support for JSX, TypeScript, React,
@@ -173,8 +174,8 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
               </li>
               <li class="bullet">
                 <h3 class="bullet-heading">
-                生产环境下优化
-                <!-- Optimize for production -->
+                  生产环境下优化
+                  <!-- Optimize for production -->
                 </h3>
                 对生产环境下的打包提供内置的优化和插件，以支持你最爱的打包工具。
                 <!-- Build for production with built-in optimizations and plugin
@@ -196,25 +197,32 @@ let description = 'Snowpack的中文文档，Snowpack是一个免打包的新型
               <a href="/tutorials/quick-start"><Button style="primary">开始吧!</Button></a>
               <a href="/concepts/how-snowpack-works"><Button>了解更多</Button></a>
             </div>
-            <div style="color:white; position:fixed; bottom:-100px;left:-100px" >
-  keywords：<a href="http://snowpack.cn/sitemap.html" title="Snowpack中文"target="_blank">
-  <strong  style="color:white">Snowpack中文</strong></a> 
-  <a href="http://snowpack.cn/sitemap.xml" title="Snowpack中文"target="_blank">
-  <strong style="color:white">Snowpack中文</strong></a>
-  </div>
+            <div style="color:white; position:fixed; bottom:-100px;left:-100px">
+              keywords：<a href="http://snowpack.cn/sitemap.html" title="Snowpack中文" target="_blank">
+                <strong style="color:white">Snowpack中文</strong></a>
+              <a href="http://snowpack.cn/sitemap.xml" title="Snowpack中文" target="_blank">
+                <strong style="color:white">Snowpack中文</strong></a>
+
+            </div>
           </div>
         </article>
+
       </section>
+
     </div>
   </BaseLayout>
+  <a href="https://beian.miit.gov.cn"
+    style="color:rgb(58,93,127); margin-left:850px; font-size:15px; line-height: 5; display: inline-flex;">京ICP备2021037274号-1</a>
+
   <!-- Place this tag in your head or just before your close body tag. -->
   <script type="text/javascript">
-    console.log("%c加入字节跳动财经部门，和优秀的人做有挑战的事！\n内推码：RS1HB4H\n\nBASE64绿色软件：dHRsZVdoaXRl，可以帮忙看简历，查进度","background:lightblue;")
+    console.log("%c加入字节跳动财经部门，和优秀的人做有挑战的事！\n内推码：RS1HB4H\n\nBASE64绿色软件：dHRsZVdoaXRl，可以帮忙看简历，查进度", "background:lightblue;")
 
-  </script>  
+  </script>
   <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
-  
-  
+
+
 
 </body>
+
 </html>
