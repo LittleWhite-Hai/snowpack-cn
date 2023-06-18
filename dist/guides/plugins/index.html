@@ -1,0 +1,258 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>创造你自己的插件</title><meta name="title" content="创造你自己的插件"><meta name="description" content="Learn the basics of our Plugin API through working examples."><meta property="og:type" content="website"><meta property="og:url" content="TODO"><meta property="og:title" content="创造你自己的插件"><meta property="og:description" content="Learn the basics of our Plugin API through working examples."><meta property="og:image" content="https://www.snowpack.dev/img/social-2.jpg"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="TODO"><meta property="twitter:title" content="创造你自己的插件"><meta property="twitter:description" content="Learn the basics of our Plugin API through working examples."><meta property="twitter:image" content="https://www.snowpack.dev/img/social-2.jpg"><link rel="stylesheet" href="/_astro/common-ZjJAJL.css" type="text/css"><link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700;900&amp;display=swap" rel="stylesheet"><style type="text/css">
+.layout.astro-Ju9h9Rf8 {
+  display: grid;
+  grid-template-areas: "contents" "main";
+  grid-gap: 2rem;
+}
+@media (min-width: 800px) {
+  .layout.astro-Ju9h9Rf8 {
+    grid-template-areas: "nav contents" "nav main";
+  }
+}
+@media (min-width: 1240px) {
+  .layout.astro-Ju9h9Rf8 {
+    grid-template-areas: "nav main contents";
+    grid-template-columns: 16rem auto 20rem;
+  }
+}
+.layout-nav.astro-Ju9h9Rf8 {
+  grid-area: nav;
+}
+@media (min-width: 800px) {
+  .layout-nav.astro-Ju9h9Rf8 {
+    position: -webkit-sticky;
+    position: sticky;
+    min-height: calc(100vh - 3.5rem);
+    height: calc(100vh - 3.5rem);
+    top: 3.5rem;
+  }
+}
+.layout-main.astro-Ju9h9Rf8 {
+  grid-area: main;
+  min-width: 0;
+  padding: 24px 0 24px 0;
+}
+@media (min-width: 1240px) {
+  .layout-contents.astro-Ju9h9Rf8 {
+    position: -webkit-sticky;
+    position: sticky;
+    min-height: calc(100vh - 3.5rem);
+    height: calc(100vh - 3.5rem);
+    top: 3.5rem;
+  }
+}
+
+h3 {
+  position: relative;
+}
+
+.header-link {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 0.75em;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #c1c1c1;
+  opacity: 0;
+  transition: opacity 100ms linear, color 100ms linear;
+}
+
+.header-link:hover {
+  color: #267dd6;
+}
+
+h3:hover .header-link {
+  opacity: 1;
+}</style></head><body><nav class="nav astro-ahFEmudE"><button id="toc-drawer-button" class="mobile-open astro-ahFEmudE" type="button" aria-expanded="false" aria-controls="nav-primary"><svg focusable="false" class="hamburger astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><title>Toggle mobile menu</title><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class="astro-ahFEmudE"></path></svg></button><a class="logo astro-ahFEmudE" href="/"><svg class="logo-icon astro-ahFEmudE" viewBox="0 0 640 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(-1.000000, 0.000000)" fill-rule="nonzero" class="astro-ahFEmudE"><path d="M635.92,462.7 L347.92,14.7 C342.03,5.54 331.89,0 321,0 C310.11,0 299.97,5.54 294.08,14.7 L6.08,462.7 C-0.250773249,472.547007 -0.699487627,485.064987 4.91,495.34 C10.522069,505.612419 21.2945349,512 33,512 L609,512 C620.71,512 631.48,505.61 637.09,495.33 C642.699457,485.058495 642.250708,472.543372 635.92,462.7 Z M321,91.18 L406.39,224 L321,224 L257,288 L218.94,249.94 L321,91.18 Z" id="Shape" class="astro-ahFEmudE"></path></g></svg><span class="logo-type astro-ahFEmudE">Snowpack</span></a><div class="search astro-ahFEmudE"><input type="text" name="search" placeholder="在文档中搜索..." class="search-input astro-ahFEmudE" id="search-form-input"><span class="search-hint astro-ahFEmudE"><span class="sr-only astro-ahFEmudE">Press </span><kbd class="font-sans astro-ahFEmudE"><abbr title="Command" style="text-decoration: none;" class="astro-ahFEmudE">⌘</abbr></kbd><span class="sr-only astro-ahFEmudE"> and </span><kbd class="font-sans astro-ahFEmudE">K</kbd><span class="sr-only astro-ahFEmudE"> to search</span></span></div><a href="https://github.com/snowpackjs/snowpack/releases" target="_blank" class="link version astro-ahFEmudE">
+    v3.8.8
+  </a><a href="https://github.com/withastro/snowpack" target="_blank" class="link link__desktop astro-ahFEmudE"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="social astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" class="astro-ahFEmudE"></path></svg></a><a href="https://twitter.com/snowpackjs" target="_blank" class="link link__desktop astro-ahFEmudE"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="social astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" class="astro-ahFEmudE"></path></svg></a><a href="https://discord.gg/snowpack" target="_blank" class="link link__desktop astro-ahFEmudE"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="discord" class="social astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 240"><path d="M84.79 90.45c-6.45 0-11.55 5.66-11.55 12.57s5.21 12.57 11.55 12.57c6.45 0 11.55-5.66 11.55-12.57.11-6.91-5.09-12.57-11.55-12.57zm41.32 0c-6.45 0-11.55 5.66-11.55 12.57s5.21 12.57 11.55 12.57c6.45 0 11.55-5.66 11.55-12.57s-5.09-12.57-11.55-12.57z" class="astro-ahFEmudE"></path><path fill="currentColor" d="M185.4 0H24.6C11.04 0 0 11.04 0 24.72v162.24c0 13.68 11.04 24.72 24.6 24.72h136.08l-6.36-22.2 15.36 14.28 14.52 13.44L210 240V24.72C210 11.04 198.96 0 185.4 0zm-46.32 156.72s-4.32-5.16-7.92-9.72c15.72-4.44 21.72-14.28 21.72-14.28-4.92 3.24-9.6 5.52-13.8 7.08-6 2.52-11.76 4.2-17.4 5.16-11.52 2.16-22.08 1.56-31.08-.12-6.84-1.32-12.72-3.24-17.64-5.16-2.76-1.08-5.76-2.4-8.76-4.08-.36-.24-.72-.36-1.08-.6-.24-.12-.36-.24-.48-.36-2.16-1.2-3.36-2.04-3.36-2.04s5.76 9.6 21 14.16c-3.6 4.56-8.04 9.96-8.04 9.96-26.52-.84-36.6-18.24-36.6-18.24 0-38.64 17.28-69.96 17.28-69.96 17.28-12.96 33.72-12.6 33.72-12.6l1.2 1.44c-21.6 6.24-31.56 15.72-31.56 15.72s2.64-1.44 7.08-3.48c12.84-5.64 23.04-7.2 27.24-7.56.72-.12 1.32-.24 2.04-.24 7.32-.96 15.6-1.2 24.24-.24 11.4 1.32 23.64 4.68 36.12 11.52 0 0-9.48-9-29.88-15.24l1.68-1.92s16.44-.36 33.72 12.6c0 0 17.28 31.32 17.28 69.96 0 0-10.2 17.4-36.72 18.24z" class="astro-ahFEmudE"></path></svg></a></nav><script>
+  function handleMobileNav(evt) {
+    evt.preventDefault();
+    /*If hidden-mobile class is enabled that means we are on desktop do overflow normal but we
+      if we are at mobile fixed body position, so that its not scrollable(which currently causing bug) and navbar  handling its
+      owns scroll. Case to consider there are chance use can open navbar using toggle button and user when click on any link
+      body postion should be unset
+      */
+    document.body.classList.toggle('is-nav-open');
+    const isOpen = document.body.classList.contains('is-nav-open');
+    if (isOpen) {
+      evt.target.setAttribute('aria-expanded', 'true');
+    } else {
+      evt.target.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  const mobileNavBtn = document.getElementById('toc-drawer-button');
+  mobileNavBtn.addEventListener('click', handleMobileNav);
+  mobileNavBtn.addEventListener('touchend', handleMobileNav);
+  if (window.location.pathname.startsWith('/posts')) {
+    mobileNavBtn.style.display = 'none';
+  }
+
+  const searchFormInputEl = document.getElementById('search-form-input');
+  searchFormInputEl.addEventListener('keyup', () => {
+    const gridTocEl = document.querySelector('#nav-primary');
+    if (searchFormInputEl.value) {
+      gridTocEl.classList.add('is-mobile-hidden');
+    } else {
+      gridTocEl.classList.remove('is-mobile-hidden');
+    }
+  });
+
+  document.onkeydown = function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.which == 75) {
+      e.preventDefault();
+      searchFormInputEl.focus();
+    }
+  };
+</script><script type="module" src="/_astro/src/components/docsearch.js"></script><doc-search api-key="562139304880b94536fc53f5d65c5c19" selector="#search-form-input" class="astro-ahFEmudE"></doc-search><div class="wrapper astro-Ju9h9Rf8"><section class="layout astro-Ju9h9Rf8"><aside id="nav-primary" class="layout-nav astro-Ju9h9Rf8"><nav class="nav astro-hk9uDi21"><ol class="contents astro-hk9uDi21"><li class="section astro-hk9uDi21"><span class="header astro-hk9uDi21">概念</span><ol class="items astro-hk9uDi21"><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/how-snowpack-works">Snowpack运行机制</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/dev-server">开发时服务</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/build-pipeline">打包流程</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/hot-module-replacement">模块热替换(HMR)</a></li></ol></li><li class="section astro-hk9uDi21"><span class="header astro-hk9uDi21">开始</span><ol class="items astro-hk9uDi21"><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/quick-start">快速上手</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/getting-started">正式使用</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/react">React</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/svelte">Svelte</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/vue">Vue</a></li></ol></li><li class="section astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/guides"><span class="header astro-hk9uDi21">指南</span></a></li><li class="section astro-hk9uDi21"><span class="header astro-hk9uDi21">引用</span><ol class="items astro-hk9uDi21"><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/configuration">snowpack.config.js</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/cli-command-line-interface">命令行 API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/javascript-interface">JavaScript API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/plugins">插件 API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/environment-variables">环境变量</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/hot-module-replacement">模块热替换 API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/supported-files">支持的文件类型</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/common-error-details">常见错误</a></li></ol></li><li class="section astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/plugins"><span class="header astro-hk9uDi21">插件目录</span></a></li><li class="section astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/news"><span class="header astro-hk9uDi21">社区 &amp; 新闻</span></a></li></ol></nav></aside><div class="astro-Ju9h9Rf8"><script type="module" defer="" src="/js/index.js"></script><aside class="subnav astro-6RrcgMjt"><div class="astro-6RrcgMjt"><h4 class="header astro-6RrcgMjt">小节</h4><nav class="toc astro-6RrcgMjt"><ol class="astro-6RrcgMjt"><li class="astro-6RrcgMjt"><a href="#创建和测试你的第一个插件" class="astro-6RrcgMjt">创建和测试你的第一个插件</a></li><li class="astro-6RrcgMjt"><a href="#测试和故障排除" class="astro-6RrcgMjt">测试和故障排除</a></li><li class="astro-6RrcgMjt"><a href="#为你的插件添加用户可配置的选项" class="astro-6RrcgMjt">为你的插件添加用户可配置的选项</a></li><li class="astro-6RrcgMjt"><a href="#插件使用案例" class="astro-6RrcgMjt">插件使用案例</a></li><li class="astro-6RrcgMjt"><a href="#构建插件" class="astro-6RrcgMjt">构建插件</a></li><li class="astro-6RrcgMjt"><a href="#转换插件" class="astro-6RrcgMjt">转换插件</a></li><li class="astro-6RrcgMjt"><a href="#开发工具插件" class="astro-6RrcgMjt">开发工具插件</a></li><li class="astro-6RrcgMjt"><a href="#打包工具插件" class="astro-6RrcgMjt">打包工具插件</a></li><li class="astro-6RrcgMjt"><a href="#例子入门" class="astro-6RrcgMjt">例子：入门</a></li><li class="astro-6RrcgMjt"><a href="#例子转换一个文件" class="astro-6RrcgMjt">例子：转换一个文件</a></li><li class="astro-6RrcgMjt"><a href="#例子从源码构建" class="astro-6RrcgMjt">例子：从源码构建</a></li><li class="astro-6RrcgMjt"><a href="#例子多文件构建" class="astro-6RrcgMjt">例子：多文件构建</a></li><li class="astro-6RrcgMjt"><a href="#例子服务器端渲染ssr" class="astro-6RrcgMjt">例子：服务器端渲染(SSR)</a></li><li class="astro-6RrcgMjt"><a href="#例子优化和打包" class="astro-6RrcgMjt">例子：优化和打包</a></li><li class="astro-6RrcgMjt"><a href="#测试" class="astro-6RrcgMjt">测试</a></li><li class="astro-6RrcgMjt"><a href="#发布插件" class="astro-6RrcgMjt">发布插件</a></li><li class="astro-6RrcgMjt"><a href="#提示问题" class="astro-6RrcgMjt">提示/问题</a></li></ol></nav><hr class="astro-6RrcgMjt"></div><h4 class="header astro-6RrcgMjt">提供建议</h4><a href="https://github.com/snowpackjs/snowpack/blob/main/docs" class="astro-6RrcgMjt">在GitHub上编辑这篇文章</a><div style="height:550px" class="astro-6RrcgMjt"></div><a href="https://beian.miit.gov.cn" style="color:rgb(58,93,127); font-size:15px; line-height: 5; display: inline-flex;" class="astro-6RrcgMjt">
+  京ICP备2021037274号-1
+</a></aside></div><article class="layout-main astro-Ju9h9Rf8"><div class="content astro-Ju9h9Rf8"><h2 class="content-title astro-Ju9h9Rf8">创造你自己的插件</h2><div class="content-layout astro-Ju9h9Rf8"><div class="content-body astro-Ju9h9Rf8"><p>一个<strong>Snowpack 插件</strong>可以让你用新的行为扩展 Snowpack。插件可以与 Snowpack 构建管道的不同阶段挂钩，以增加对新文件类型和你最喜欢的开发工具的支持。添加插件以支持 Svelte，将 Sass 编译为 CSS，将 SVG 转换为 React 组件，打包你的最终构建，在开发过程中进行类型检查，以及更多。</p><p>本指南将带领你创建和发布你的第一个插件。</p><ul><li>Snowpack 插件的基本结构</li><li>如何从 Snowpack Plugin API 中选择正确的钩子</li><li>如何发布你的插件并将其添加到我们的<a href="/plugins">插件</a>目录中</li></ul><p>先决条件：Snowpack 插件是用 JavaScript 编写的，并通过 Node.js 运行，因此需要具备这两方面的基本知识。</p><h2 id="创建和测试你的第一个插件">创建和测试你的第一个插件</h2><p>在这一步中，你将创建一个简单的插件支架，你可以根据指南中的例子把它变成一个有效的插件。</p><p>为你的插件创建一个名为<code>my-snowpack-plugin</code>的目录，并在其中创建一个<code>my-snowpack-plugin.js</code>文件。</p><pre class=" language-js"><code class="language-js"><span class="token comment">// my-snowpack-plugin.js</span>
+<span class="token comment">// Example: a basic Snowpack plugin file, customize the name of the file and the value of the name in the object</span>
+<span class="token comment">// snowpackConfig = The Snowpack configuration object</span>
+<span class="token comment">// pluginOptions = user-provided configuration options</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">snowpackConfig<span class="token punctuation">,</span> pluginOptions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">"my-snowpack-plugin"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>为了测试你的新插件，运行<code>npm init</code>来创建一个基本的<code>package.json</code>，然后在你的插件目录中运行<code>npm link</code>，在全局范围内（在你的开发机器上）公开该插件。</p><p>为了测试，在不同的目录下<a href="/tutorials/getting-started">创建一个新的 Snowpack 示例项目</a>。在你的示例 Snowpack 项目中，运行<code>npm install &amp;&amp; npm link my-snowpack-plugin</code>（使用你的插件的<code>package.json</code>中的名称）。</p><blockquote><p>另一种方法是使用<code>npm install --save-dev path_to_your_plugin</code>，这将在你的 Snowpack 项目的<code>package.</code>json 中创建 “类似 symlink “的条目。</p></blockquote><p>在你的示例 Snowpack 项目中，将你的插件和任何你想测试的插件选项一起添加到<code>snowpack.config.mjs</code>中。</p><pre class=" language-js"><code class="language-js"><span class="token comment">// snowpack.config.mjs</span>
+<span class="token comment">// Example: enabling a Snowpack plugin called "my-snowpack-plugin"</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"my-snowpack-plugin"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><h2 id="测试和故障排除">测试和故障排除</h2><ul><li>TODO: 创建一个完整的测试程序</li><li>提示：在命令中添加<code>--verbose</code>以查看步骤，例如，<code>snowpack dev --verbose</code>或<code>snowpack build --verbose</code>。</li></ul><h2 id="为你的插件添加用户可配置的选项">为你的插件添加用户可配置的选项</h2><p>TODO 让这成为一个真实的例子 在这一步，你将学习如何为你的插件添加用户可配置的选项，并在你的插件代码中使用它们。</p><p>在你的例子 Snowpack 项目中，不要把插件启用为一个包含插件名称的字符串，而是使用一个数组。第一项是你的插件的名称，第二项是包含插件选项的新对象。</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> // snowpack.config.mjs
+</span><span class="token prefix unchanged"> </span><span class="token line"> export default {
+</span><span class="token prefix unchanged"> </span><span class="token line">   plugins: [
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">     'my-snowpack-plugin'
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">     ['my-snowpack-plugin', { optionA: 'foo', optionB: true }]
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   ]
+</span><span class="token prefix unchanged"> </span><span class="token line"> };
+</span></span></code></pre><p>你可以通过<code>pluginOptions</code>来访问这些</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> // my-snowpack-plugin.js
+</span><span class="token prefix unchanged"> </span><span class="token line"> module.exports = function (snowpackConfig, pluginOptions) {
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   let optionA = pluginOptions.optionA;
+</span><span class="token prefix inserted">+</span><span class="token line">   let optionB = pluginOptions.optionB;
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   return {
+</span><span class="token prefix unchanged"> </span><span class="token line">     name: 'my-snowpack-plugin',
+</span><span class="token prefix unchanged"> </span><span class="token line">   };
+</span><span class="token prefix unchanged"> </span><span class="token line"> };
+</span></span></code></pre><h3 id="插件使用案例">插件使用案例</h3><p>Snowpack 使用一个内部的<strong>构建管道</strong>来构建你的应用程序中的文件，用于开发和生产。每个源文件都会经过构建管道，这意味着 Snowpack 可以构建的不仅仅是 JavaScript。图片、CSS、SVG 等都可以由 Snowpack 构建。</p><h4 id="构建插件">构建插件</h4><p>Snowpack 找到第一个声称可以<code>解决</code>给定文件的插件。然后它调用该插件的<code>load()</code>方法，将文件加载到你的应用程序中。这就是编译语言（TypeScript、Sass、JJSX 等）被加载并编译成可以在网络上运行的东西（JS、CSS 等）。</p><h4 id="转换插件">转换插件</h4><p>一旦加载，每个文件都会再次通过构建管道，通过所有提供该方法的插件的匹配<code>转化（）</code>方法运行。插件可以在完成文件构建之前对文件进行转换以修改其内容。</p><h4 id="开发工具插件">开发工具插件</h4><p>Snowpack 插件支持一个<code>run()</code>方法，它可以让你运行任何 CLI 工具并将其输出连接到 Snowpack 中。你可以用它来运行你最喜欢的开发工具（linters，TypeScript 等）与 Snowpack，并通过 Snowpack 开发者控制台自动报告其输出。如果命令失败，你可以选择让你的生产构建失败。</p><h4 id="打包工具插件">打包工具插件</h4><p>Snowpack 默认为你构建一个可运行的、未打包的网站，但你可以通过插件<code>optimize()</code>方法用你喜欢的打包工具（webpack、Rollup、Parcel 等）来优化这个最终构建。当使用打包插件时，Snowpack 会在你的构建中自动运行打包工具来优化它。</p><p>请参阅我们的官方<a href="https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack">@snowpack/plugin-webpack</a>bundler 插件，了解使用当前接口的例子。</p><h3 id="例子入门">例子：入门</h3><p>要创建一个 Snowpack 插件，你可以从以下文件模板开始。</p><pre class=" language-js"><code class="language-js"><span class="token comment">// my-snowpack-plugin.js</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">snowpackConfig<span class="token punctuation">,</span> pluginOptions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">"my-snowpack-plugin"</span><span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><pre class=" language-js"><code class="language-js"><span class="token comment">// snowpack.config.mjs</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">"./my-snowpack-plugin.js"</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        optionA<span class="token operator">:</span> <span class="token string">"foo"</span><span class="token punctuation">,</span>
+        optionB<span class="token operator">:</span> <span class="token string">"bar"</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>一个 Snowpack 插件应该以一个函数的形式发布，这个函数可以通过调用插件特定的选项来返回一个插件对象。 Snowpack 会自动调用这个函数来加载你的插件。该函数接受 2 个参数，按照这个顺序。</p><ol><li><a href="/reference/configuration">Snowpack 配置对象</a><code>(snowpackConfig</code>)</li><li>(可选）用户提供的配置选项<code>（pluginOptions</code>）。</li></ol><h3 id="例子转换一个文件">例子：转换一个文件</h3><p>对于我们的第一个例子，我们将看看如何转换一个文件。</p><pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">snowpackConfig<span class="token punctuation">,</span> pluginOptions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">"my-commenter-plugin"</span><span class="token punctuation">,</span>
+    <span class="token keyword">async</span> <span class="token function">transform</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> id<span class="token punctuation">,</span> contents<span class="token punctuation">,</span> isDev<span class="token punctuation">,</span> fileExt <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>fileExt <span class="token operator">===</span> <span class="token string">".js"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/* I’m a comment! */ </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>contents<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>这个函数返回的对象是一个<strong>Snowpack Plugin</strong>。一个插件由一个<code>名称</code>属性和一些进入 Snowpack 生命周期的钩子组成，以定制你的构建管道或开发环境。在上面的例子中，我们有。</p><ul><li><strong>名称</strong>属性。你的插件的名称。如果发布到 npm，这通常与你的软件包名称相同。</li><li><strong>转换方法</strong>。一个允许你转换和修改已建文件的函数。在这种情况下，我们在你构建的每个 JS 文件的开头添加一个简单的注释<code>（/*我是一个注释*/</code>）。</li></ul><p>这涵盖了单文件转换的基础知识。在下一个例子中，我们将展示如何编译一个源文件并在此过程中改变文件扩展名。</p><h3 id="例子从源码构建">例子：从源码构建</h3><p>当你从源代码构建文件时，你也有能力将文件类型从源代码转换为网络代码。在这个例子中，我们将使用 Babel 加载几种类型的文件作为输入，并在最终构建时输出 JavaScript。</p><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> babel <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@babel/core"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">snowpackConfig<span class="token punctuation">,</span> pluginOptions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">"my-babel-plugin"</span><span class="token punctuation">,</span>
+    resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+      input<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">".js"</span><span class="token punctuation">,</span> <span class="token string">".jsx"</span><span class="token punctuation">,</span> <span class="token string">".ts"</span><span class="token punctuation">,</span> <span class="token string">".tsx"</span><span class="token punctuation">,</span> <span class="token string">".mjs"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      output<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">".js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">async</span> <span class="token function">load</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> filePath <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> babel<span class="token punctuation">.</span><span class="token function">transformFileAsync</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> result<span class="token punctuation">.</span>code<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>这是官方 Snowpack Babel 插件的简化版，它用<code>load()</code>方法构建应用程序中的所有 JavaScript、TypeScript 和 JSX 文件。</p><p><code>load()</code>方法负责从磁盘加载和构建文件，而<code>resolve</code>属性则告诉 Snowpack 插件可以加载哪些文件，以及期望输出什么。在这种情况下，该插件要求负责匹配在<code>resolve.input</code> 中发现的任何文件扩展名的文件，并输出<code>.js</code>JavaScript（通过<code>resolve.output</code> 声明）。<code>resolve.output</code>也可以使用多部分扩展名，如<code>.module.css</code>或<code>.hbs.js</code>-文件将从最具体的扩展名到最小的扩展名进行匹配。</p><p><strong>请看它的操作</strong>。假设我们有一个源文件在<code>src/components/App.jsx</code>。因为<code>.jsx</code>文件的扩展名与我们的插件的<code>resolve.input</code>数组中的扩展名相匹配，所以 Snowpack 让这个插件负责加载这个文件。<code>load()</code>执行，Babel 从磁盘中构建 JJSX 输入文件，JavaScript 被返回到最终构建。</p><h3 id="例子多文件构建">例子：多文件构建</h3><p>对于一个更复杂的例子，我们将采取一个输入文件（<code>.svelte</code>），并使用它来生成两个输出文件（<code>.js</code>和<code>.css</code>）。</p><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fs"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>promises<span class="token punctuation">;</span>
+<span class="token keyword">const</span> svelte <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"svelte/compiler"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">snowpackConfig<span class="token punctuation">,</span> pluginOptions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">"my-svelte-plugin"</span><span class="token punctuation">,</span>
+    resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+      input<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">".svelte"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      output<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">".js"</span><span class="token punctuation">,</span> <span class="token string">".css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">async</span> <span class="token function">load</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> filePath <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> fileContents <span class="token operator">=</span> <span class="token keyword">await</span> fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> js<span class="token punctuation">,</span> css <span class="token punctuation">}</span> <span class="token operator">=</span> svelte<span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span>fileContents<span class="token punctuation">,</span> <span class="token punctuation">{</span> filename<span class="token operator">:</span> filePath <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token string">".js"</span><span class="token operator">:</span> js <span class="token operator">&amp;&amp;</span> js<span class="token punctuation">.</span>code<span class="token punctuation">,</span>
+        <span class="token string">".css"</span><span class="token operator">:</span> css <span class="token operator">&amp;&amp;</span> css<span class="token punctuation">.</span>code<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>这是官方 Snowpack Svelte 插件的一个简化版本。如果你不熟悉 Svelte，不要担心，只要知道构建一个 Svelte 文件（<code>.svelte</code>）会生成 JS 和 CSS，供我们最终构建。</p><p>在这种情况下，<code>resolve</code>属性只接受一个<code>输入</code>文件类型（<code>['.svelte']</code>），但有两个<code>输出</code>文件类型（<code>['.js', '.css']</code>）。这与 Svelte 的构建过程和我们的<code>load()</code>方法的返回项相匹配。</p><p><strong>请看它的操作</strong>。假设我们有一个源文件在<code>src/components/App.svelte</code>。因为<code>.svelte</code>文件的扩展名与我们的插件的<code>resolve.input</code>数组中的扩展名相匹配，所以 Snowpack 让这个插件负责加载这个文件。<code>load()</code>执行后，Svelte 从磁盘中构建文件，JavaScript 和 CSS 都被返回到最终构建中。</p><p>请注意，<code>.svelte</code>在<code>resolve.output</code>中没有出现，也没有被<code>load()</code>返回。只有<code>load()</code>方法返回的文件才包括在最终构建中。如果你想让你的插件在最终构建中保留原始源文件，你可以在返回对象中添加<code>{ '.svelte': contents }</code>。到返回对象中。</p><h3 id="例子服务器端渲染ssr">例子：服务器端渲染(SSR)</h3><p>插件可以通过<code>load()</code>插件钩子为 SSR 产生服务器优化的代码。<code>isSSR</code>标志告诉插件，Snowpack 正在为服务器请求你的文件，并且它将期待一个在服务器上运行的响应。</p><p>一些框架/语言（如 React）在浏览器和服务器上都运行相同的代码。其他的（如 Svelte）将为服务器创建不同于浏览器的输出。在下面的例子中，我们使用<code>isSSR</code>标志来告诉 Svelte 编译器在 Snowpack 的要求下生成服务器优化的代码。</p><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> svelte <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"svelte/compiler"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">snowpackConfig<span class="token punctuation">,</span> pluginOptions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">"basic-svelte-plugin"</span><span class="token punctuation">,</span>
+    resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+      input<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">".svelte"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      output<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">".js"</span><span class="token punctuation">,</span> <span class="token string">".css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">async</span> <span class="token function">load</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> filePath<span class="token punctuation">,</span> isSSR <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> svelteOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token comment">/* ... */</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> codeToCompile <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> result <span class="token operator">=</span> svelte<span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span>codeToCompile<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token operator">...</span>svelteOptions<span class="token punctuation">,</span>
+        ssr<span class="token operator">:</span> isSSR<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// ...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>如果你不确定你的插件是否需要特殊的 SSR 支持，你可能可以跳过这一点，忽略插件中的<code>isSSR</code>标志。许多语言不需要这个，而且 SSR 总是由用户有意选择的。</p><h3 id="例子优化和打包">例子：优化和打包</h3><p>Snowpack 通过<code>optimize()</code>钩子支持可插拔的打包插件和其他构建优化。该方法在构建后运行，给插件一个优化最终构建目录的机会。Webpack、Rollup 和其他只针对构建的优化应该使用这个钩子。</p><pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">snowpackConfig<span class="token punctuation">,</span> pluginOptions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'my-custom-webpack-plugin'</span><span class="token punctuation">,</span>
+    <span class="token keyword">async</span> <span class="token function">optimize</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> buildDirectory <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">await</span> webpack<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>这是<code>@snowpack/plugin-webpack</code>插件的一个（明显）简化版本。当构建命令完成构建你的应用程序时，这个插件钩子被调用，并以<code>buildDirectory</code>路径作为参数。由该插件从该目录读取构建文件，并将任何更改写回该目录。更改应该在原地进行，所以只在最后写入文件，并确保自己清理干净（如果一个文件在优化/打包后不再需要，就可以安全地删除）。</p><h3 id="测试">测试</h3><p>要开发和测试一个 Snowpack 插件，其策略与其他 npm 包相同。</p><ul><li>创建你的新插件项目（可以用<code>npm init</code>或<code>yarn init</code>），例如 npm name:<code>my-snowpack-plugin</code>，并在其中粘贴上述的代码片段</li><li>在你的插件的项目文件夹中运行<code>npm link</code>，在全局范围内公开该插件（就你的开发机器而言）。</li><li>在不同的地方创建一个新的 Snowpack 示例项目进行测试</li><li>在你的示例 Snowpack 项目中，运行<code>npm install &amp;&amp; npm link my-snowpack-plugin</code>（使用你的插件的<code>package.json</code>中的名称）。
+<ul><li>请注意，<code>npm install</code>会删除你的链接插件，所以在任何安装中，你都需要重新做<code>npm link my-snowpack-plugin</code>。</li><li>(另一种方法是使用<code>npm install --save-dev </code>，这将在你的 Snowpack 项目的<code>package.</code>json 中创建 “symlink-like “条目)</li></ul></li></ul><p>在你的示例 Snowpack 项目中，将你的插件和任何你想测试的插件选项一起添加到<code>snowpack.config.mjs</code>中。</p><pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">"my-snowpack-plugin"</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">"option-1"</span><span class="token operator">:</span> <span class="token string">"testing"</span><span class="token punctuation">,</span>
+        <span class="token string">"another-option"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><h3 id="发布插件">发布插件</h3><p>要与世界分享一个插件，你可以把它发布到 npm。例如，看看<a href="https://github.com/snowpackjs/snowpack-plugin-starter-template">snowpack-plugin-starter-template</a>，它可以让你快速启动和运行。你可以直接复制它，也可以简单地拿走你需要的东西。</p><p>一般来说，请确保注意以下的检查清单。</p><ul><li>✔️ 你的<code>package.json</code>文件有一个指向最终构建的<code>主</code>条目</li><li>✔️ 你的代码被编译成可以在 Node &gt;= 10 上运行。</li><li>✔️ 你的软件包 README 包含一个自定义选项列表，如果你的插件是可配置的。</li></ul><h3 id="提示问题">提示/问题</h3><ul><li>请记住。一个源文件将总是被第一个<code>load()</code>插件加载，以索取它，但构建结果将通过每个<code>转换</code>函数运行。</li><li>Snowpack 将始终保持原始文件名<code>（App</code>），只在构建过程中改变扩展名。</li><li>Snowpack 中的扩展名总是有一个领先的<code>.</code>字符（例如：<code>.js</code>，<code>.ts</code>）。这是为了匹配 Node 的<code>path.extname()</code>行为，同时确保我们不匹配扩展名子串（例如，如果我们在文件末尾匹配<code>js</code>，我们也不希望意外地匹配<code>.mjs</code>文件；我们希望在这里明确一点）。</li><li><code>resolve.input</code>和<code>resolve.output</code>文件扩展数组对于 Snowpack 如何理解你的构建管道至关重要，并且总是需要<code>load()</code>正确运行。</li><li>如果<code>load()</code>没有返回任何东西，该文件就不会被加载，而会调用下一个合适的插件的<code>load()</code>。</li><li>如果<code>transform()</code>没有返回任何东西，文件就不会被转化。</li><li>如果你想建立一个只在初始化时运行一些代码的插件（比如<code>@snowpack/plugin-dotenv</code>），把你的副作用代码放在返回插件的函数里面。但一定要确保仍然返回一个插件对象。一个简单的<code>{ name }</code>对象就可以了。</li></ul></div></div></div></article></section></div><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-130280175-9"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'UA-130280175-9', { page_path: location.pathname === '/' ? (location.pathname + location.hash) : (location.pathname) });
+</script></body></html>

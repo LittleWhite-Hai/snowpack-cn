@@ -1,0 +1,315 @@
+<!DOCTYPE html><html><head><style type="text/css">
+
+.cover-wrapper.astro-2xuBJN2O {
+  width: 100%;
+  height: 44vh;
+  min-height: 20rem;
+  max-height: 30rem;
+  position: relative;
+  background: #2a85ca40;
+  overflow: hidden;
+}
+
+.cover.astro-2xuBJN2O,.cover-blur.astro-2xuBJN2O {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.cover-blur.astro-2xuBJN2O {
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: blur(3px) brightness(1.5);
+  transform: scale(1.1);
+}
+
+.cover.astro-2xuBJN2O {
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: brightness(1.5);
+}
+
+@media (max-width: 1200px) {
+  .cover-blur.astro-2xuBJN2O {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .cover.astro-2xuBJN2O {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.layout.astro-2xuBJN2O {
+  display: grid;
+  grid-template-areas: "contents" "main";
+  grid-gap: 2rem;
+}
+@media (min-width: 800px) {
+  .layout.astro-2xuBJN2O {
+    grid-template-areas: "nav contents" "nav main";
+  }
+}
+@media (min-width: 1240px) {
+  .layout.astro-2xuBJN2O {
+    grid-template-areas: "nav main contents";
+    grid-template-columns: 16rem auto 20rem;
+  }
+}
+.layout-nav.astro-2xuBJN2O {
+  grid-area: nav;
+}
+@media (min-width: 800px) {
+  .layout-nav.astro-2xuBJN2O {
+    position: -webkit-sticky;
+    position: sticky;
+    min-height: calc(100vh - 3.5rem);
+    height: calc(100vh - 3.5rem);
+    top: 3.5rem;
+  }
+}
+.layout-main.astro-2xuBJN2O {
+  grid-area: main;
+  min-width: 0;
+  padding: 24px 0 24px 0;
+}
+@media (min-width: 1240px) {
+  .layout-contents.astro-2xuBJN2O {
+    position: -webkit-sticky;
+    position: sticky;
+    min-height: calc(100vh - 3.5rem);
+    height: calc(100vh - 3.5rem);
+    top: 3.5rem;
+  }
+}
+
+h3 {
+  position: relative;
+}
+
+.header-link {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 0.75em;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #c1c1c1;
+  opacity: 0;
+  transition: opacity 100ms linear, color 100ms linear;
+}
+
+.header-link:hover {
+  color: #267dd6;
+}
+
+h3:hover .header-link {
+  opacity: 1;
+}</style><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>React</title><meta name="title" content="React"><meta name="description" content="Get started with this in-depth tutorial on how to build React applications and websites with Snowpack and developer tools like React Fast Refresh"><meta property="og:type" content="website"><meta property="og:url" content="TODO"><meta property="og:title" content="React"><meta property="og:description" content="Get started with this in-depth tutorial on how to build React applications and websites with Snowpack and developer tools like React Fast Refresh"><meta property="og:image" content="https://www.snowpack.dev/img/social-2.jpg"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="TODO"><meta property="twitter:title" content="React"><meta property="twitter:description" content="Get started with this in-depth tutorial on how to build React applications and websites with Snowpack and developer tools like React Fast Refresh"><meta property="twitter:image" content="https://www.snowpack.dev/img/social-2.jpg"><link rel="stylesheet" href="/_astro/common-ZjJAJL.css" type="text/css"><link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700;900&amp;display=swap" rel="stylesheet"></head><body><nav class="nav astro-ahFEmudE"><button id="toc-drawer-button" class="mobile-open astro-ahFEmudE" type="button" aria-expanded="false" aria-controls="nav-primary"><svg focusable="false" class="hamburger astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><title>Toggle mobile menu</title><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class="astro-ahFEmudE"></path></svg></button><a class="logo astro-ahFEmudE" href="/"><svg class="logo-icon astro-ahFEmudE" viewBox="0 0 640 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(-1.000000, 0.000000)" fill-rule="nonzero" class="astro-ahFEmudE"><path d="M635.92,462.7 L347.92,14.7 C342.03,5.54 331.89,0 321,0 C310.11,0 299.97,5.54 294.08,14.7 L6.08,462.7 C-0.250773249,472.547007 -0.699487627,485.064987 4.91,495.34 C10.522069,505.612419 21.2945349,512 33,512 L609,512 C620.71,512 631.48,505.61 637.09,495.33 C642.699457,485.058495 642.250708,472.543372 635.92,462.7 Z M321,91.18 L406.39,224 L321,224 L257,288 L218.94,249.94 L321,91.18 Z" id="Shape" class="astro-ahFEmudE"></path></g></svg><span class="logo-type astro-ahFEmudE">Snowpack</span></a><div class="search astro-ahFEmudE"><input type="text" name="search" placeholder="在文档中搜索..." class="search-input astro-ahFEmudE" id="search-form-input"><span class="search-hint astro-ahFEmudE"><span class="sr-only astro-ahFEmudE">Press </span><kbd class="font-sans astro-ahFEmudE"><abbr title="Command" style="text-decoration: none;" class="astro-ahFEmudE">⌘</abbr></kbd><span class="sr-only astro-ahFEmudE"> and </span><kbd class="font-sans astro-ahFEmudE">K</kbd><span class="sr-only astro-ahFEmudE"> to search</span></span></div><a href="https://github.com/snowpackjs/snowpack/releases" target="_blank" class="link version astro-ahFEmudE">
+    v3.8.8
+  </a><a href="https://github.com/withastro/snowpack" target="_blank" class="link link__desktop astro-ahFEmudE"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="social astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" class="astro-ahFEmudE"></path></svg></a><a href="https://twitter.com/snowpackjs" target="_blank" class="link link__desktop astro-ahFEmudE"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="social astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" class="astro-ahFEmudE"></path></svg></a><a href="https://discord.gg/snowpack" target="_blank" class="link link__desktop astro-ahFEmudE"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="discord" class="social astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 240"><path d="M84.79 90.45c-6.45 0-11.55 5.66-11.55 12.57s5.21 12.57 11.55 12.57c6.45 0 11.55-5.66 11.55-12.57.11-6.91-5.09-12.57-11.55-12.57zm41.32 0c-6.45 0-11.55 5.66-11.55 12.57s5.21 12.57 11.55 12.57c6.45 0 11.55-5.66 11.55-12.57s-5.09-12.57-11.55-12.57z" class="astro-ahFEmudE"></path><path fill="currentColor" d="M185.4 0H24.6C11.04 0 0 11.04 0 24.72v162.24c0 13.68 11.04 24.72 24.6 24.72h136.08l-6.36-22.2 15.36 14.28 14.52 13.44L210 240V24.72C210 11.04 198.96 0 185.4 0zm-46.32 156.72s-4.32-5.16-7.92-9.72c15.72-4.44 21.72-14.28 21.72-14.28-4.92 3.24-9.6 5.52-13.8 7.08-6 2.52-11.76 4.2-17.4 5.16-11.52 2.16-22.08 1.56-31.08-.12-6.84-1.32-12.72-3.24-17.64-5.16-2.76-1.08-5.76-2.4-8.76-4.08-.36-.24-.72-.36-1.08-.6-.24-.12-.36-.24-.48-.36-2.16-1.2-3.36-2.04-3.36-2.04s5.76 9.6 21 14.16c-3.6 4.56-8.04 9.96-8.04 9.96-26.52-.84-36.6-18.24-36.6-18.24 0-38.64 17.28-69.96 17.28-69.96 17.28-12.96 33.72-12.6 33.72-12.6l1.2 1.44c-21.6 6.24-31.56 15.72-31.56 15.72s2.64-1.44 7.08-3.48c12.84-5.64 23.04-7.2 27.24-7.56.72-.12 1.32-.24 2.04-.24 7.32-.96 15.6-1.2 24.24-.24 11.4 1.32 23.64 4.68 36.12 11.52 0 0-9.48-9-29.88-15.24l1.68-1.92s16.44-.36 33.72 12.6c0 0 17.28 31.32 17.28 69.96 0 0-10.2 17.4-36.72 18.24z" class="astro-ahFEmudE"></path></svg></a></nav><script>
+  function handleMobileNav(evt) {
+    evt.preventDefault();
+    /*If hidden-mobile class is enabled that means we are on desktop do overflow normal but we
+      if we are at mobile fixed body position, so that its not scrollable(which currently causing bug) and navbar  handling its
+      owns scroll. Case to consider there are chance use can open navbar using toggle button and user when click on any link
+      body postion should be unset
+      */
+    document.body.classList.toggle('is-nav-open');
+    const isOpen = document.body.classList.contains('is-nav-open');
+    if (isOpen) {
+      evt.target.setAttribute('aria-expanded', 'true');
+    } else {
+      evt.target.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  const mobileNavBtn = document.getElementById('toc-drawer-button');
+  mobileNavBtn.addEventListener('click', handleMobileNav);
+  mobileNavBtn.addEventListener('touchend', handleMobileNav);
+  if (window.location.pathname.startsWith('/posts')) {
+    mobileNavBtn.style.display = 'none';
+  }
+
+  const searchFormInputEl = document.getElementById('search-form-input');
+  searchFormInputEl.addEventListener('keyup', () => {
+    const gridTocEl = document.querySelector('#nav-primary');
+    if (searchFormInputEl.value) {
+      gridTocEl.classList.add('is-mobile-hidden');
+    } else {
+      gridTocEl.classList.remove('is-mobile-hidden');
+    }
+  });
+
+  document.onkeydown = function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.which == 75) {
+      e.preventDefault();
+      searchFormInputEl.focus();
+    }
+  };
+</script><script type="module" src="/_astro/src/components/docsearch.js"></script><doc-search api-key="562139304880b94536fc53f5d65c5c19" selector="#search-form-input" class="astro-ahFEmudE"></doc-search><div class="cover-wrapper astro-2xuBJN2O"><img class="cover-blur astro-2xuBJN2O" src="/img/ReactGuide.jpg" alt=""><img class="cover astro-2xuBJN2O" src="/img/ReactGuide.jpg" alt=""></div><div class="wrapper astro-2xuBJN2O"><section class="layout astro-2xuBJN2O"><aside id="nav-primary" class="layout-nav astro-2xuBJN2O"><nav class="nav astro-hk9uDi21"><ol class="contents astro-hk9uDi21"><li class="section astro-hk9uDi21"><span class="header astro-hk9uDi21">概念</span><ol class="items astro-hk9uDi21"><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/how-snowpack-works">Snowpack运行机制</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/dev-server">开发时服务</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/build-pipeline">打包流程</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/hot-module-replacement">模块热替换(HMR)</a></li></ol></li><li class="section astro-hk9uDi21"><span class="header astro-hk9uDi21">开始</span><ol class="items astro-hk9uDi21"><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/quick-start">快速上手</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/getting-started">正式使用</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/react">React</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/svelte">Svelte</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/vue">Vue</a></li></ol></li><li class="section astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/guides"><span class="header astro-hk9uDi21">指南</span></a></li><li class="section astro-hk9uDi21"><span class="header astro-hk9uDi21">引用</span><ol class="items astro-hk9uDi21"><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/configuration">snowpack.config.js</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/cli-command-line-interface">命令行 API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/javascript-interface">JavaScript API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/plugins">插件 API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/environment-variables">环境变量</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/hot-module-replacement">模块热替换 API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/supported-files">支持的文件类型</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/common-error-details">常见错误</a></li></ol></li><li class="section astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/plugins"><span class="header astro-hk9uDi21">插件目录</span></a></li><li class="section astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/news"><span class="header astro-hk9uDi21">社区 &amp; 新闻</span></a></li></ol></nav></aside><div class="astro-2xuBJN2O"><script type="module" defer="" src="/js/index.js"></script><aside class="subnav astro-6RrcgMjt"><div class="astro-6RrcgMjt"><h4 class="header astro-6RrcgMjt">小节</h4><nav class="toc astro-6RrcgMjt"><ol class="astro-6RrcgMjt"><li class="astro-6RrcgMjt"><a href="#开始使用" class="astro-6RrcgMjt">开始使用</a></li><li class="astro-6RrcgMjt"><a href="#创建你的第一个-react-组件" class="astro-6RrcgMjt">创建你的第一个 React 组件</a></li><li class="astro-6RrcgMjt"><a href="#定制项目结构" class="astro-6RrcgMjt">定制项目结构</a></li><li class="astro-6RrcgMjt"><a href="#为项目添加样式" class="astro-6RrcgMjt">为项目添加样式</a></li><li class="astro-6RrcgMjt"><a href="#快速刷新使-snowpack-更快" class="astro-6RrcgMjt">快速刷新使 Snowpack 更快</a></li><li class="astro-6RrcgMjt"><a href="#更进一步" class="astro-6RrcgMjt">更进一步</a></li></ol></nav><hr class="astro-6RrcgMjt"></div><h4 class="header astro-6RrcgMjt">提供建议</h4><a href="https://github.com/snowpackjs/snowpack/blob/main/docs" class="astro-6RrcgMjt">在GitHub上编辑这篇文章</a><div style="height:550px" class="astro-6RrcgMjt"></div><a href="https://beian.miit.gov.cn" style="color:rgb(58,93,127); font-size:15px; line-height: 5; display: inline-flex;" class="astro-6RrcgMjt">
+  京ICP备2021037274号-1
+</a></aside></div><article class="layout-main astro-2xuBJN2O"><div class="content astro-2xuBJN2O"><h2 class="content-title astro-2xuBJN2O">React</h2><div class="content-layout astro-2xuBJN2O"><div class="content-body astro-2xuBJN2O"><p>Snowpack 非常适用于任何规模的<a href="https://reactjs.org/">React</a>项目。它很容易上手，可以扩展到包含数千个组件和页面的项目而不影响开发速度。与传统的 React 应用工具不同，Snowpack 让你免于被复杂的打包环境和配置文件所困扰。</p><p>你将看到从一个空目录变成一个完全配置好的 Snowpack 项目的过程，它支持 React 和其他一些有用的开发者工具。在这个过程中，你会学到</p><ul><li>如何设置 Snowpack 开发环境</li><li>添加第一个 React 组件</li><li>使用 CSS、图片和其他 web 资源</li><li>启用 React 的<a href="https://reactnative.dev/docs/fast-refresh">快速刷新</a>模式</li><li>接入你喜欢的工具</li></ul><p>预备知识：Snowpack 是一个从 npm 安装的命令行工具。本指南假定你对 Node.js、npm 以及如何在终端运行命令有基本了解。对 React 的了解不是必需的，Snowpack 是学习 React 的一个好方法。</p><blockquote><p>💡 提示：如果你想跳过教程直接得到配置完整的 React 项目，<a href="https://github.com/snowpackjs/snowpack/tree/main/create-snowpack-app/app-template-react">Create Snowpack App React template</a>包含了本指南中的所有内容以及其他有用的工具。</p></blockquote><h2 id="开始使用">开始使用</h2><p>开始一个新的 Snowpack 项目的最简单方法是使用<a href="https://github.com/snowpackjs/snowpack/tree/main/create-snowpack-app/cli">Create Snowpack App</a>，这是一个在新目录中设置 Snowpack 的工具。<code>@snowpack/project-template-minimal</code>是一个创建 Snowpack 应用的模板，用于简单的、基本的 Snowpack 项目配置，本指南的其余部分也是基于它。</p><p>现在开始吧，请打开终端，进入你想放入新项目的目录。现在在终端上运行以下命令，创建一个名为<code>react-snowpack</code>的新目录，并自动安装基本模板。</p><pre class=" language-bash"><code class="language-bash">npx create-snowpack-app react-snowpack --template @snowpack/app-template-minimal
+</code></pre><p>现在你可以前往新目录，用以下两个命令启动 Snowpack。</p><pre class=" language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> react-snowpack
+<span class="token function">npm</span> run start
+</code></pre><p>你能看到网站已经启动并运行了!</p><blockquote><p>💡 提示：新项目中的<code>README.md</code>包含了每个文件的用途。</p></blockquote><div class="frame"><img src="/img/guides/react/minimalist-hello-world.png" alt="screenshot of project-template-minimal, which shows 'Hello world' in text on a white background." class="screenshot"></div><p>现在你已经有了一个正在运行的基本项目，要安装 React，在项目目录下运行以下命令。</p><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> react react-dom --save
+</code></pre><blockquote><p>提示：添加<code>--use-yarn</code>或<code>--use-pnpm</code>选项以使用 npm 以外的包管理器。</p></blockquote><h2 id="创建你的第一个-react-组件">创建你的第一个 React 组件</h2><p>React 依赖于一种名为 JSX 的特殊模板语言。如果你熟悉 React，那么你已经知道了 JSX：它是 React 的模板语言，能让你直接在 JavaScript 代码中写一些像<code>&lt;App /&gt;</code>或<code>&lt;Header&gt;&lt;Header /&gt;</code>的东西。</p><p>Snowpack 在使用<code>.jsx</code>扩展名的文件中内置了对 JSX 的支持。这意味着在编写第一个 React 组件时，不需要任何插件或配置。将<code>index.js</code>文件重命名为<code>index.jsx</code>，这样 Snowpack 就知道要处理文件中的 JSX。</p><pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> index.js index.jsx
+</code></pre><blockquote><p>💡 提示：你不需要更新<code>index.html</code>脚本标签引用以指向<code>index.jsx</code>。浏览器不认识 JSX(或 TypeScript)，所以任何要被编译为 JS 的文件在最终的构建产物中都会被编译为<code>.js</code>。当你在 HTML 的<code>&lt;script src=""&gt;</code>和<code>&lt;Link href=""&gt;</code>中引用构建好的文件时，最好将这个提示牢记。</p></blockquote><p>现在你可以在<code>index.jsx</code>中导入 React，并添加一个简单的测试组件，以确保它能正常运行。</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> /* Add JavaScript code here! */
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> console.log('Hello World! You did it! Welcome to Snowpack :D');
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> import React from 'react';
+</span><span class="token prefix inserted">+</span><span class="token line"> import ReactDOM from 'react-dom';
+</span><span class="token prefix inserted">+</span><span class="token line"> ReactDOM.render(&lt;div&gt;"HELLO REACT"&lt;/div&gt;, document.getElementById('root'));
+</span></span></code></pre><p>由于 React 代码最终被渲染到一个 id 为<code>root</code>的元素中，你需要将其添加到<code>index.html</code>中。</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &lt;body&gt;
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   &lt;h1&gt;Welcome to Snowpack!&lt;/h1&gt;
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &lt;div id="root"&gt;&lt;/div&gt;
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   &lt;script type="module" src="/index.js"&gt;&lt;/script&gt;
+</span><span class="token prefix unchanged"> </span><span class="token line"> &lt;/body&gt;
+</span></span></code></pre><div class="frame"><img src="/img/guides/react/minimalist-hello-world-react.png" alt="screenshot of the project, which shows 'HELLO REACT' on a white background" class="screenshot"></div><p>你刚刚在 Snowpack 中创建了第一个 React 组件!</p><h2 id="定制项目结构">定制项目结构</h2><p>由于你将会添加一堆新的文件，你可能不希望它们直接堆在根目录。Snowpack 足够灵活，可以支持你喜欢的任何项目结构。在本指南中，你将学习如何使用 React 社区的一个流行的项目模式。</p><pre class=" language-html"><code class="language-html">📁 src : your React components and their assets (CSS, images)
+    ↳ index.jsx
+📁 public : global assets like images, fonts, icons, and global CSS
+    ↳ index.css
+    ↳ index.html
+</code></pre><p>使用你喜欢的工具来重新排列和重命名文件，或者在终端运行这些命令。</p><pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> src
+<span class="token function">mkdir</span> public
+<span class="token function">mv</span> index.jsx src/index.jsx
+<span class="token function">mv</span> index.html public/index.html
+<span class="token function">mv</span> index.css public/index.css
+</code></pre><p>如果你现在正在运行 Snowpack，那么现在网站已经挂了，因为文件的路径变了。添加一个 “mount” 配置来更新网站的文件结构。</p><p><code>mount</code>配置改变了 Snowpack 寻找和构建文件的位置。每个 Snowpack 项目都有一个<code>snowpack.config.mjs</code>文件，用于你可能需要的任何配置。现在，你能看到一个带有空选项的配置文件。将这三行添加到空的<code>mount</code>对象中。</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> export default {
+</span><span class="token prefix unchanged"> </span><span class="token line">   mount: {
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">     /* ... */
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">     // directory name: 'build directory'
+</span><span class="token prefix inserted">+</span><span class="token line">     public: '/',
+</span><span class="token prefix inserted">+</span><span class="token line">     src: '/dist',
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   },
+</span><span class="token prefix unchanged"> </span><span class="token line"> };
+</span></span></code></pre><img src="/img/guides/react/folderstructure.png" alt="The original file configuration had Snowpack building the directory structure the same as the directories in the project, including root. Now the config builds only src and public. Src to the dist folder and public to root."><p><code>mount</code>是<a href="/reference/configuration">Snowpack configuration API</a>的一部分。它允许你定制项目的文件结构。键是目录的名称，值是你希望它们在最终构建时的位置。有了这个新的配置，Snowpack 会将<code>public</code>目录下的文件，如<code>public/index.css</code>目录，构建到<code>index.css</code>。它将<code>src</code>目录下的文件，如<code>src/index.js</code>，构建到<code>/dist/index.js</code>中，所以你需要在<code>index.html</code>中改变这个路径。</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &lt;body&gt;
+</span><span class="token prefix unchanged"> </span><span class="token line">   &lt;h1&gt;Welcome to Snowpack!&lt;/h1&gt;
+</span><span class="token prefix unchanged"> </span><span class="token line">   &lt;div id="root"&gt;&lt;/div&gt;
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   &lt;script type="module" src="/index.js"&gt;&lt;/script&gt;
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &lt;script type="module" src="/dist/index.js"&gt;&lt;/script&gt;
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &lt;/body&gt;
+</span></span></code></pre><p>你需要重启 Snowpack 来使配置生效。再次启动时，如果成功了，它看起来应该没变。</p><p>创建一个<code>src/App.jsx</code>新文件，并将以下代码粘贴到里面以创建一个<code>App</code>组件。</p><pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Create the count state.</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Update the count (+1 every second).</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setCount</span><span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Return the App component.</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>App<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>App-header<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+          Page has been open for </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>code</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">{</span>count<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>code</span><span class="token punctuation">&gt;</span></span><span class="token plain-text"> seconds.
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span>
+</code></pre><p>现在把它引入到<code>index.jsx</code>中</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> import React from 'react';
+</span><span class="token prefix unchanged"> </span><span class="token line"> import ReactDOM from 'react-dom';
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> ReactDOM.render(&lt;div&gt;"HELLO WORLD"&lt;/div&gt;, document.getElementById('root'));
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> import App from './App.jsx';
+</span><span class="token prefix inserted">+</span><span class="token line"> ReactDOM.render(
+</span><span class="token prefix inserted">+</span><span class="token line">   &lt;React.StrictMode&gt;
+</span><span class="token prefix inserted">+</span><span class="token line">     &lt;App /&gt;
+</span><span class="token prefix inserted">+</span><span class="token line">   &lt;/React.StrictMode&gt;,
+</span><span class="token prefix inserted">+</span><span class="token line">   document.getElementById('root'),
+</span><span class="token prefix inserted">+</span><span class="token line"> );
+</span></span></code></pre><blockquote><p>💡 提示：<a href="https://reactjs.org/docs/strict-mode.html">React.StrictMode</a>是一个高亮 React 代码中潜在问题的工具。</p></blockquote><p>不用重启 Snowpack 就能看到效果，它应该是这样的。</p><div class="frame"><img src="/img/guides/react/minimalist-hello-world-react-timer.png" alt="screenshot of the project with text that says 'Page has been open for' and the number of seconds then 'seconds'" class="screenshot"></div><h2 id="为项目添加样式">为项目添加样式</h2><p>当你添加图片或 CSS 等资源时，Snowpack 会将它们引入到最终的构建中。如果你已经了解 React，这个过程看起来应该很熟悉。</p><blockquote><p>💡 提示：在你做这个的时候，你不需要重新加载页面或重新启动 Snowpack。Snowpack 会在你编辑代码时自动更新浏览器中的内容。</p></blockquote><p>把文件<a href="https://github.com/snowpackjs/snowpack/blob/main/create-snowpack-app/app-template-react/src/logo.svg"><code>logo.svg</code></a>添加到<code>src</code>目录。现在你可以把它导入<code>App.jsx</code>，并在<code>img</code>标签中使用它以在页面中展示。</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> import React, { useState, useEffect } from 'react';
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> import logo from './logo.svg';
+</span></span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> function App() {
+</span><span class="token prefix unchanged"> </span><span class="token line">   // Create the count state.
+</span><span class="token prefix unchanged"> </span><span class="token line">   const [count, setCount] = useState(0);
+</span><span class="token prefix unchanged"> </span><span class="token line">   // Create the counter (+1 every second).
+</span><span class="token prefix unchanged"> </span><span class="token line">   useEffect(() =&gt; {
+</span><span class="token prefix unchanged"> </span><span class="token line">     const timer = setTimeout(() =&gt; setCount(count + 1), 1000);
+</span><span class="token prefix unchanged"> </span><span class="token line">     return () =&gt; clearTimeout(timer);
+</span><span class="token prefix unchanged"> </span><span class="token line">   }, [count, setCount]);
+</span><span class="token prefix unchanged"> </span><span class="token line">   // Return the App component.
+</span><span class="token prefix unchanged"> </span><span class="token line">   return (
+</span><span class="token prefix unchanged"> </span><span class="token line">     &lt;div className="App"&gt;
+</span><span class="token prefix unchanged"> </span><span class="token line">       &lt;header className="App-header"&gt;
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">       &lt;img src={logo} className="App-logo" alt="logo" /&gt;
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">       &lt;p&gt;
+</span></span></code></pre><div class="frame"><img src="/img/guides/react/minimalist-hello-world-react-logo.png" alt="the React logo (a blue atom) is now at the top of the page" class="screenshot"></div><p>该项目已经有 index.css 用于全局样式。对于只适用于特定组件的 CSS，常见的实践是将其添加到一个与组件名称相同的 CSS 文件中，比如，<code>App.jsx</code>的样式文件将是<code>App.css</code>。</p><blockquote><p>💡 提示：Snowpack 内置了对<a href="/reference/supported-files">CSS 模块化</a>的支持，<a href="/guides/sass/">Sass Plugin</a>是官方支持的 Sass。</p></blockquote><p>创建<code>src/App.css</code>并添加这个 CSS。</p><pre class=" language-css"><code class="language-css"><span class="token selector">.App</span> <span class="token punctuation">{</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.App p</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0.4rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.App-logo</span> <span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 40vmin<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">prefers-reduced-motion</span><span class="token punctuation">:</span> no-preference<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token selector">.App-logo</span> <span class="token punctuation">{</span>
+    <span class="token property">animation</span><span class="token punctuation">:</span> App-logo-spin infinite 20s linear<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.App-header</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #282c34<span class="token punctuation">;</span>
+  <span class="token property">min-height</span><span class="token punctuation">:</span> 100vh<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>10px + 2vmin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@keyframes</span> App-logo-spin</span> <span class="token punctuation">{</span>
+  <span class="token selector">from</span> <span class="token punctuation">{</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>0deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">to</span> <span class="token punctuation">{</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>360deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>要使用这个 CSS，请前往<code>App.jsx</code>并导入它。</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> import logo from './logo.svg';
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> import './App.css';
+</span></span></code></pre><div class="frame"><img src="/img/guides/react/react.gif" alt="The page now has centered items, a grey background, styled fonts, and the React logo has an animation that rotates it." class="screenshot"></div><h2 id="快速刷新使-snowpack-更快">快速刷新使 Snowpack 更快</h2><p><a href="https://reactnative.dev/docs/fast-refresh">React 快速刷新</a>？那是什么？这是一个 Snowpack 的增强功能，可以让你在不刷新页面或清除组件状态的情况下推送单个文件的变化以更新浏览器。</p><p>React 项目通常包含交互的并且包含 state。例如，你正在构建的这个项目有一个 state 维护着在页面上停留的秒数。当开发组件包含 state 时，编辑代码并且不丢失 state 常常很有用。React 的快速刷新机制可以在不刷新整个页面的前提下响应更新。学习如何添加这个功能同时也是熟悉 Snowpack 插件的一个很好的过程。Snowpack 从一个最小的结构开始，它的设计让你可以通过插件系统添加你需要的东西。</p><p>首先，在项目中启用<a href="/concepts/hot-module-replacement">HMR</a>。HMR 是让 Snowpack 在不刷新整个页面的情况下向浏览器推送更新的机制，这是快速刷新的预备条件。你可以通过在<code>src/index.jsx</code>文件中添加一小段代码来为 React 启用 HMR。</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> ReactDOM.render(
+</span><span class="token prefix unchanged"> </span><span class="token line">   &lt;React.StrictMode&gt;
+</span><span class="token prefix unchanged"> </span><span class="token line">     &lt;App /&gt;
+</span><span class="token prefix unchanged"> </span><span class="token line">   &lt;/React.StrictMode&gt;,
+</span><span class="token prefix unchanged"> </span><span class="token line">   document.getElementById('root'),
+</span><span class="token prefix unchanged"> </span><span class="token line"> );
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> // Hot Module Replacement (HMR) - Remove this snippet to remove HMR.
+</span><span class="token prefix inserted">+</span><span class="token line"> // Learn more: https://www.snowpack.dev/concepts/hot-module-replacement
+</span><span class="token prefix inserted">+</span><span class="token line"> if (undefined /* [snowpack] import.meta.hot */ ) {
+</span><span class="token prefix inserted">+</span><span class="token line">   undefined /* [snowpack] import.meta.hot */ .accept();
+</span><span class="token prefix inserted">+</span><span class="token line"> }
+</span></span></code></pre><p>现在，当你改变<code>App.jsx</code>时，页面会响应更新内容，并且不需要完全刷新。</p><div class="frame"><img src="/img/guides/react/hmr.gif" alt="GIF showing code side by side with the app. A change in made to App.jsx and it shows immediately when the file is changed. The counter keeps counting uninterrupted." class="screenshot"></div><p>HMR 本身可以为你节省时间，但你可能会注意到在上面的例子中，页面上的计数器仍然被重设为 0。这可能会降低你的开发效率，特别是当你调试一个特定的组件状态问题时。让我们启用 “快速刷新” 功能，以便在更新时保留组件状态。</p><p>要启用快速刷新，你需要安装<code>@snowpack/plugin-react-refresh</code>。这个包是一个 Snowpack 插件，你可以用它来增强或定制 Snowpack 的各种新功能。</p><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> @snowpack/plugin-react-refresh --save-dev
+</code></pre><p>一旦安装完毕，你需要将该插件添加到 Snowpack 配置文件中来让 Snowpack 知道要用它。</p><pre class=" language-diff"><code class="language-diff"><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> module.exports = {
+</span><span class="token prefix unchanged"> </span><span class="token line">   mount: {
+</span><span class="token prefix unchanged"> </span><span class="token line">     public: '/',
+</span><span class="token prefix unchanged"> </span><span class="token line">     src: '/dist',
+</span><span class="token prefix unchanged"> </span><span class="token line">   },
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   plugins: []
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   plugins: ['@snowpack/plugin-react-refresh'],
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> };
+</span></span></code></pre><p>重新启动 Snowpack 以应用新的插件，然后再次改变<code>App.jsx</code>组件。如果 “快速刷新” 运行正常，计数器会在文件修改时保持其数值，而不会重设为零。</p><div class="frame"><img src="/img/guides/react/react-fast-refresh.gif" alt="GIF showing code side by side with the app. A change in made to App.jsx and it shows immediately when the file is changed. The counter keeps counting uninterrupted." class="screenshot"></div><h2 id="更进一步">更进一步</h2><p>干得好 你现在已经可以用 Snowpack 构建你梦想中的 React 项目了。想在 Twitter 上向全世界展示你的成就吗？请点击下面的按钮。</p><p><a href="https://twitter.com/share?ref_src=twsrc%5Etfw">Twitter</a></p><p>到了这里，你已经掌握了基础知识，对于任何 React 项目这都是一个很好的开端。但如果你与官方的<a href="https://github.com/snowpackjs/snowpack/tree/main/create-snowpack-app/app-template-react">Snowpack React template</a>相比，你会发现它还有一些其他的开发者工具可能很有用。</p><ul><li><a href="https://prettier.io/">Prettier</a>- 一个流行的代码格式化工具</li><li><a href="/guides/testing">Test</a>- Snowpack 支持任何流行的 JavaScript 测试框架</li><li><a href="https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-dotenv"><code>@snowpack/plugin-dotenv</code></a>- 在你的 Snowpack 中使用<code>dotenv</code>。这对环境特定变量很有用</li></ul><p>如果你想在 Snowpack 和 React 中使用 Typescript，请查看<a href="https://github.com/snowpackjs/snowpack/tree/main/create-snowpack-app/app-template-react-typescript">Snowpack React Typescript</a> 启动器。</p><p>如果你有任何问题、评论或更正，我们希望在<a href="https://github.com/snowpackjs/snowpack/discussions">Snowpack 论坛</a>或<a href="https://discord.gg/rS8SnRk">Snowpack Discord 社区</a>听到你的意见。</p></div></div></div></article></section></div><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-130280175-9"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'UA-130280175-9', { page_path: location.pathname === '/' ? (location.pathname + location.hash) : (location.pathname) });
+</script></body></html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><link rel="manifest" href="/favicon/site.webmanifest"><title>Snowpack 升级指南</title><meta name="title" content="Snowpack 升级指南"><meta name="description" content="How to upgrade to Snowpack v3 from older versions of Snowpack."><meta property="og:type" content="website"><meta property="og:url" content="TODO"><meta property="og:title" content="Snowpack 升级指南"><meta property="og:description" content="How to upgrade to Snowpack v3 from older versions of Snowpack."><meta property="og:image" content="https://www.snowpack.dev/img/social-2.jpg"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="TODO"><meta property="twitter:title" content="Snowpack 升级指南"><meta property="twitter:description" content="How to upgrade to Snowpack v3 from older versions of Snowpack."><meta property="twitter:image" content="https://www.snowpack.dev/img/social-2.jpg"><link rel="stylesheet" href="/_astro/common-ZjJAJL.css" type="text/css"><link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700;900&amp;display=swap" rel="stylesheet"><style type="text/css">
+.layout.astro-Ju9h9Rf8 {
+  display: grid;
+  grid-template-areas: "contents" "main";
+  grid-gap: 2rem;
+}
+@media (min-width: 800px) {
+  .layout.astro-Ju9h9Rf8 {
+    grid-template-areas: "nav contents" "nav main";
+  }
+}
+@media (min-width: 1240px) {
+  .layout.astro-Ju9h9Rf8 {
+    grid-template-areas: "nav main contents";
+    grid-template-columns: 16rem auto 20rem;
+  }
+}
+.layout-nav.astro-Ju9h9Rf8 {
+  grid-area: nav;
+}
+@media (min-width: 800px) {
+  .layout-nav.astro-Ju9h9Rf8 {
+    position: -webkit-sticky;
+    position: sticky;
+    min-height: calc(100vh - 3.5rem);
+    height: calc(100vh - 3.5rem);
+    top: 3.5rem;
+  }
+}
+.layout-main.astro-Ju9h9Rf8 {
+  grid-area: main;
+  min-width: 0;
+  padding: 24px 0 24px 0;
+}
+@media (min-width: 1240px) {
+  .layout-contents.astro-Ju9h9Rf8 {
+    position: -webkit-sticky;
+    position: sticky;
+    min-height: calc(100vh - 3.5rem);
+    height: calc(100vh - 3.5rem);
+    top: 3.5rem;
+  }
+}
+
+h3 {
+  position: relative;
+}
+
+.header-link {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 0.75em;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #c1c1c1;
+  opacity: 0;
+  transition: opacity 100ms linear, color 100ms linear;
+}
+
+.header-link:hover {
+  color: #267dd6;
+}
+
+h3:hover .header-link {
+  opacity: 1;
+}</style></head><body><nav class="nav astro-ahFEmudE"><button id="toc-drawer-button" class="mobile-open astro-ahFEmudE" type="button" aria-expanded="false" aria-controls="nav-primary"><svg focusable="false" class="hamburger astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><title>Toggle mobile menu</title><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class="astro-ahFEmudE"></path></svg></button><a class="logo astro-ahFEmudE" href="/"><svg class="logo-icon astro-ahFEmudE" viewBox="0 0 640 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(-1.000000, 0.000000)" fill-rule="nonzero" class="astro-ahFEmudE"><path d="M635.92,462.7 L347.92,14.7 C342.03,5.54 331.89,0 321,0 C310.11,0 299.97,5.54 294.08,14.7 L6.08,462.7 C-0.250773249,472.547007 -0.699487627,485.064987 4.91,495.34 C10.522069,505.612419 21.2945349,512 33,512 L609,512 C620.71,512 631.48,505.61 637.09,495.33 C642.699457,485.058495 642.250708,472.543372 635.92,462.7 Z M321,91.18 L406.39,224 L321,224 L257,288 L218.94,249.94 L321,91.18 Z" id="Shape" class="astro-ahFEmudE"></path></g></svg><span class="logo-type astro-ahFEmudE">Snowpack</span></a><div class="search astro-ahFEmudE"><input type="text" name="search" placeholder="在文档中搜索..." class="search-input astro-ahFEmudE" id="search-form-input"><span class="search-hint astro-ahFEmudE"><span class="sr-only astro-ahFEmudE">Press </span><kbd class="font-sans astro-ahFEmudE"><abbr title="Command" style="text-decoration: none;" class="astro-ahFEmudE">⌘</abbr></kbd><span class="sr-only astro-ahFEmudE"> and </span><kbd class="font-sans astro-ahFEmudE">K</kbd><span class="sr-only astro-ahFEmudE"> to search</span></span></div><a href="https://github.com/snowpackjs/snowpack/releases" target="_blank" class="link version astro-ahFEmudE">
+    v3.8.8
+  </a><a href="https://github.com/withastro/snowpack" target="_blank" class="link link__desktop astro-ahFEmudE"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="social astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" class="astro-ahFEmudE"></path></svg></a><a href="https://twitter.com/snowpackjs" target="_blank" class="link link__desktop astro-ahFEmudE"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="social astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" class="astro-ahFEmudE"></path></svg></a><a href="https://discord.gg/snowpack" target="_blank" class="link link__desktop astro-ahFEmudE"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="discord" class="social astro-ahFEmudE" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 240"><path d="M84.79 90.45c-6.45 0-11.55 5.66-11.55 12.57s5.21 12.57 11.55 12.57c6.45 0 11.55-5.66 11.55-12.57.11-6.91-5.09-12.57-11.55-12.57zm41.32 0c-6.45 0-11.55 5.66-11.55 12.57s5.21 12.57 11.55 12.57c6.45 0 11.55-5.66 11.55-12.57s-5.09-12.57-11.55-12.57z" class="astro-ahFEmudE"></path><path fill="currentColor" d="M185.4 0H24.6C11.04 0 0 11.04 0 24.72v162.24c0 13.68 11.04 24.72 24.6 24.72h136.08l-6.36-22.2 15.36 14.28 14.52 13.44L210 240V24.72C210 11.04 198.96 0 185.4 0zm-46.32 156.72s-4.32-5.16-7.92-9.72c15.72-4.44 21.72-14.28 21.72-14.28-4.92 3.24-9.6 5.52-13.8 7.08-6 2.52-11.76 4.2-17.4 5.16-11.52 2.16-22.08 1.56-31.08-.12-6.84-1.32-12.72-3.24-17.64-5.16-2.76-1.08-5.76-2.4-8.76-4.08-.36-.24-.72-.36-1.08-.6-.24-.12-.36-.24-.48-.36-2.16-1.2-3.36-2.04-3.36-2.04s5.76 9.6 21 14.16c-3.6 4.56-8.04 9.96-8.04 9.96-26.52-.84-36.6-18.24-36.6-18.24 0-38.64 17.28-69.96 17.28-69.96 17.28-12.96 33.72-12.6 33.72-12.6l1.2 1.44c-21.6 6.24-31.56 15.72-31.56 15.72s2.64-1.44 7.08-3.48c12.84-5.64 23.04-7.2 27.24-7.56.72-.12 1.32-.24 2.04-.24 7.32-.96 15.6-1.2 24.24-.24 11.4 1.32 23.64 4.68 36.12 11.52 0 0-9.48-9-29.88-15.24l1.68-1.92s16.44-.36 33.72 12.6c0 0 17.28 31.32 17.28 69.96 0 0-10.2 17.4-36.72 18.24z" class="astro-ahFEmudE"></path></svg></a></nav><script>
+  function handleMobileNav(evt) {
+    evt.preventDefault();
+    /*If hidden-mobile class is enabled that means we are on desktop do overflow normal but we
+      if we are at mobile fixed body position, so that its not scrollable(which currently causing bug) and navbar  handling its
+      owns scroll. Case to consider there are chance use can open navbar using toggle button and user when click on any link
+      body postion should be unset
+      */
+    document.body.classList.toggle('is-nav-open');
+    const isOpen = document.body.classList.contains('is-nav-open');
+    if (isOpen) {
+      evt.target.setAttribute('aria-expanded', 'true');
+    } else {
+      evt.target.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  const mobileNavBtn = document.getElementById('toc-drawer-button');
+  mobileNavBtn.addEventListener('click', handleMobileNav);
+  mobileNavBtn.addEventListener('touchend', handleMobileNav);
+  if (window.location.pathname.startsWith('/posts')) {
+    mobileNavBtn.style.display = 'none';
+  }
+
+  const searchFormInputEl = document.getElementById('search-form-input');
+  searchFormInputEl.addEventListener('keyup', () => {
+    const gridTocEl = document.querySelector('#nav-primary');
+    if (searchFormInputEl.value) {
+      gridTocEl.classList.add('is-mobile-hidden');
+    } else {
+      gridTocEl.classList.remove('is-mobile-hidden');
+    }
+  });
+
+  document.onkeydown = function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.which == 75) {
+      e.preventDefault();
+      searchFormInputEl.focus();
+    }
+  };
+</script><script type="module" src="/_astro/src/components/docsearch.js"></script><doc-search api-key="562139304880b94536fc53f5d65c5c19" selector="#search-form-input" class="astro-ahFEmudE"></doc-search><div class="wrapper astro-Ju9h9Rf8"><section class="layout astro-Ju9h9Rf8"><aside id="nav-primary" class="layout-nav astro-Ju9h9Rf8"><nav class="nav astro-hk9uDi21"><ol class="contents astro-hk9uDi21"><li class="section astro-hk9uDi21"><span class="header astro-hk9uDi21">概念</span><ol class="items astro-hk9uDi21"><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/how-snowpack-works">Snowpack运行机制</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/dev-server">开发时服务</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/build-pipeline">打包流程</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/concepts/hot-module-replacement">模块热替换(HMR)</a></li></ol></li><li class="section astro-hk9uDi21"><span class="header astro-hk9uDi21">开始</span><ol class="items astro-hk9uDi21"><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/quick-start">快速上手</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/getting-started">正式使用</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/react">React</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/svelte">Svelte</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/tutorials/vue">Vue</a></li></ol></li><li class="section astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/guides"><span class="header astro-hk9uDi21">指南</span></a></li><li class="section astro-hk9uDi21"><span class="header astro-hk9uDi21">引用</span><ol class="items astro-hk9uDi21"><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/configuration">snowpack.config.js</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/cli-command-line-interface">命令行 API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/javascript-interface">JavaScript API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/plugins">插件 API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/environment-variables">环境变量</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/hot-module-replacement">模块热替换 API</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/supported-files">支持的文件类型</a></li><li class="astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/reference/common-error-details">常见错误</a></li></ol></li><li class="section astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/plugins"><span class="header astro-hk9uDi21">插件目录</span></a></li><li class="section astro-hk9uDi21"><a class="link astro-hk9uDi21" href="/news"><span class="header astro-hk9uDi21">社区 &amp; 新闻</span></a></li></ol></nav></aside><div class="astro-Ju9h9Rf8"><script type="module" defer="" src="/js/index.js"></script><aside class="subnav astro-6RrcgMjt"><div class="astro-6RrcgMjt"><h4 class="header astro-6RrcgMjt">小节</h4><nav class="toc astro-6RrcgMjt"><ol class="astro-6RrcgMjt"><li class="astro-6RrcgMjt"><a href="#从-snowpack-v3-候选版本升级" class="astro-6RrcgMjt">从 Snowpack v3 候选版本升级</a></li><li class="astro-6RrcgMjt"><a href="#从-snowpack-v2-升级" class="astro-6RrcgMjt">从 Snowpack v2 升级</a></li><li class="astro-6RrcgMjt"><a href="#从-snowpack-v1-升级" class="astro-6RrcgMjt">从 Snowpack v1 升级</a></li><li class="astro-6RrcgMjt"><a href="#选项-1内置优化" class="astro-6RrcgMjt">选项 1：内置优化</a></li><li class="astro-6RrcgMjt"><a href="#选项-2优化插件" class="astro-6RrcgMjt">选项 2：优化插件</a></li></ol></nav><hr class="astro-6RrcgMjt"></div><h4 class="header astro-6RrcgMjt">提供建议</h4><a href="https://github.com/snowpackjs/snowpack/blob/main/docs" class="astro-6RrcgMjt">在GitHub上编辑这篇文章</a><div style="height:550px" class="astro-6RrcgMjt"></div><a href="https://beian.miit.gov.cn" style="color:rgb(58,93,127); font-size:15px; line-height: 5; display: inline-flex;" class="astro-6RrcgMjt">
+  京ICP备2021037274号-1
+</a></aside></div><article class="layout-main astro-Ju9h9Rf8"><div class="content astro-Ju9h9Rf8"><h2 class="content-title astro-Ju9h9Rf8">Snowpack 升级指南</h2><div class="content-layout astro-Ju9h9Rf8"><div class="content-body astro-Ju9h9Rf8"><p>Snowpack v3.0 于 1 月 12 日发布，有几个新功能和一些突破性的变化。本指南旨在帮助你从 Snowpack v1 或 v2 的旧版本升级一个项目。</p><h2 id="从-snowpack-v3-候选版本升级">从 Snowpack v3 候选版本升级</h2><p>我们的 v3.0 候选版本来是一个接近最终版本的版本，但在当时和 v3.0 最终版本之间仍有一些重大变化。当使用任何过时的 API 时，Snowpack 会发出警告，并指导你完成升级过程。</p><p>在未来，Snowpack 候选版本将更接近于最终的 API。</p><h2 id="从-snowpack-v2-升级">从 Snowpack v2 升级</h2><p>Snowpack v3.0 主要是围绕新功能而设计的，因此没有引入很多重大的突破性变化。然而，有一些变化是需要注意的。</p><ul><li><strong>配置名称的变化</strong>。有一些遗留行为的清理和旧配置值的重命名。当第一次运行 Snowpack v3.0 时，Snowpack 会警告你所有已知的名称变化，并提供说明以帮助你升级。</li><li><strong>package.json “homepage” 不再设置 “baseUrl”</strong>。这是 Create React App 的一个行为，我们最初试图匹配。然而，它在向用户解释时变得很混乱。在 Snowpack v3.0 中，直接设置 “buildOptions.baseUrl”。</li><li><strong>改进了对配置中相对路径的支持。配</strong>置文件中的所有相对路径现在都是相对于配置文件本身的。以前，所有相对的配置文件路径都是基于你运行 Snowpack 的当前工作目录来解决的，这意味着配置文件的行为会根据你运行它的位置而改变。你现在还可以设置项目的<code>"根"</code>/<code>--根目录</code>，如果你从一个与项目本身不同的目录中运行 Snowpack（例如：在 monorepos），这很有用。</li><li><strong>更清晰的构建文件命名</strong>。Snowpack v3.0 引入了一些围绕构建文件名的清理工作，你在升级项目时可能会看到。最大的变化是像<code>.svelte</code>和<code>.vue</code>这样的文件，现在它们的 JS 和 CSS 分别构建为<code>.svelte.js</code>和<code>.svelte.css</code>。这一变化对大多数人来说应该是不明显的，但知道这一点是很好的。</li><li><strong>更清晰地处理绝对导入 URL。例</strong>如，<code>导入"/dist/index.js"</code>，现在将导入任何建立在<code>/dist/index.js</code>的文件。在此之前，这种行为是未定义的。相对的 URL 仍然可以被用来导入相对于源文件本身的文件。</li></ul><h2 id="从-snowpack-v1-升级">从 Snowpack v1 升级</h2><p>Snowpack v1 只支持以 ESM 的方式安装 npm 包，而且范围比现在的 Snowpack 更有限。如果你是从 Snowpack v1.0 来的，你也许可以直接使用我们的内部包安装程序库<a href="https://www.npmjs.com/package/esinstall">esinstall</a>。<code>esinstall</code>是一个 JavaScript 库，它实现了 Snowpack v1.0 通过命令行的大部分功能。</p><p><code>snowpack build</code>将网站构建成网络原生 JS、CSS 和 HTML 文件。这种 “免打包式”部署对于小型网站来说已经足够了，但许多开发者更愿意优化和打包他们的最终网站，以提高生产性能。</p><p>Snowpack 可以在最终构建中运行各种优化，以处理传统的浏览器支持、代码最小化、代码拆分、tree-shaking、dead-code elimination、预加载、打包等等。</p><p>Snowpack 的构建优化有两种类型：<strong>内置</strong>（esbuild）和<strong>插件</strong>（webpack、rollup 或其他你可能想运行的东西）。</p><h3 id="选项-1内置优化">选项 1：内置优化</h3><p>Snowpack 最近发布了一个由<a href="https://esbuild.github.io/">esbuild</a>支持的内置优化管道。使用这个内置的优化器，你现在可以比 Webpack 或 Rollup 快 10 倍到 100 倍地打包、转译和最小化生产构建。然而，esbuild 还很年轻，还<a href="https://esbuild.github.io/faq/#production-readiness">没有为生产做好准备</a>。所以目前我们只推荐小型项目使用。</p><pre class=" language-js"><code class="language-js"><span class="token comment">// snowpack.config.mjs</span>
+<span class="token comment">// Example: Using Snowpack's built-in bundling support</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  optimize<span class="token operator">:</span> <span class="token punctuation">{</span>
+    bundle<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    minify<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    target<span class="token operator">:</span> <span class="token string">"es2018"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>完整的支持界面是。</p><pre class=" language-ts"><code class="language-ts"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">OptimizeOptions</span> <span class="token punctuation">{</span>
+  entrypoints<span class="token operator">:</span> <span class="token string">"auto"</span> <span class="token operator">|</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>options<span class="token operator">:</span> <span class="token punctuation">{</span> files<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  preload<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  bundle<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  loader<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>ext<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> Loader <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  sourcemap<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">|</span> <span class="token string">"external"</span> <span class="token operator">|</span> <span class="token string">"inline"</span> <span class="token operator">|</span> <span class="token string">"both"</span><span class="token punctuation">;</span>
+  splitting<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  treeshake<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  manifest<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  minify<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  target<span class="token operator">:</span> <span class="token string">"es2020"</span> <span class="token operator">|</span> <span class="token string">"es2019"</span> <span class="token operator">|</span> <span class="token string">"es2018"</span> <span class="token operator">|</span> <span class="token string">"es2017"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="选项-2优化插件">选项 2：优化插件</h3><p>Snowpack 通过插件支持流行的打包插件。</p><ul><li>webpack(推荐!):<a href="https://www.npmjs.com/package/@snowpack/plugin-webpack">@snowpack/plugin-webpack</a></li><li>Rollup:<a href="https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle">snowpack-plugin-rollup-bundle</a></li></ul><p><strong>目前，我们建议使用@snowpack/plugin-webpack，直到我们的内置优化支持更加成熟</strong>。</p><p>查看我们的<a href="/plugins">插件目录</a>，浏览所有可用的 Snowpack 插件，如果你对创建自己的插件感兴趣，请阅读<a href="/guides/plugins">插件指南</a>。</p></div></div></div></article></section></div><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-130280175-9"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'UA-130280175-9', { page_path: location.pathname === '/' ? (location.pathname + location.hash) : (location.pathname) });
+</script></body></html>
